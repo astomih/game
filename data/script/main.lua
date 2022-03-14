@@ -12,6 +12,8 @@ function setup()
 end
 
 function update()
+	--aaa
 	hello_drawer:draw()
 end
---1111
+
+
