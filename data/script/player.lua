@@ -16,38 +16,22 @@ local function calc_input_vector()
     end
 
 end
-local function is_collisiton(player, before_pos, map, map_draw3ds, map_size_x,
-                             map_size_y)
+local function is_collision(player, before_pos, map, map_draw3ds, map_size_x,
+                            map_size_y)
     is_collied = false
     player_aabb = aabb()
-    player_aabb.max = vector3(
-                          player.drawer.position.x + player.drawer.scale.x *
-                              player.model.aabb.max.x,
-                          player.drawer.position.y + player.drawer.scale.y *
-                              player.model.aabb.max.y, player.drawer.position.z +
-                              player.drawer.scale.z * player.model.aabb.max.z);
-    player_aabb.min = vector3(
-                          player.drawer.position.x + player.drawer.scale.x *
-                              player.model.aabb.min.x,
-                          player.drawer.position.y + player.drawer.scale.y *
-                              player.model.aabb.min.y, player.drawer.position.z +
-                              player.drawer.scale.z * player.model.aabb.min.z);
+    player_aabb.max = player.drawer.position:add(
+                          player.drawer.scale:mul(player.model.aabb.max))
+    player_aabb.min = player.drawer.position:add(
+                          player.drawer.scale:mul(player.model.aabb.min))
     box_aabb = aabb()
     for i = 1, map_size_x do
         for j = 1, map_size_y do
             if map[i][j] == 1 then
-                box_aabb.max = vector3(map_draw3ds[i][j].position.x +
-                                           map_draw3ds[i][j].scale.x,
-                                       map_draw3ds[i][j].position.y +
-                                           map_draw3ds[i][j].scale.y,
-                                       map_draw3ds[i][j].position.z +
-                                           map_draw3ds[i][j].scale.z);
-                box_aabb.min = vector3(map_draw3ds[i][j].position.x -
-                                           map_draw3ds[i][j].scale.x,
-                                       map_draw3ds[i][j].position.y -
-                                           map_draw3ds[i][j].scale.y,
-                                       map_draw3ds[i][j].position.z -
-                                           map_draw3ds[i][j].scale.z);
+                box_aabb.max = map_draw3ds[i][j].position:add(map_draw3ds[i][j]
+                                                                  .scale)
+                box_aabb.min = map_draw3ds[i][j].position:sub(map_draw3ds[i][j]
+                                                                  .scale)
                 if player_aabb:intersects_aabb(box_aabb) then
                     player.drawer.position = before_pos
                     is_collied = true
@@ -58,6 +42,9 @@ local function is_collisiton(player, before_pos, map, map_draw3ds, map_size_x,
     end
     return is_collied
 end
+local speed = 2.0
+local function xor(a, b) return (a and not b) or (not a and b) end
+
 local player = {
     drawer = {},
     model = {},
@@ -70,17 +57,80 @@ local player = {
         self.drawer.position = vector3(-2, 0, 0)
     end,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
-        speed = 2.0
         calc_input_vector()
+        if input_vector.x == 0 and input_vector.y == 0 then return 0 end
+        scale = self.drawer.scale.x * 2.0
         before_pos = vector3(self.drawer.position.x, self.drawer.position.y,
                              self.drawer.position.z)
-        self.drawer.position = vector3(
-                                   self.drawer.position.x + input_vector.x *
-                                       speed * delta_time, self.drawer.position
-                                       .y + input_vector.y * speed * delta_time,
-                                   0);
-        is_collisiton(self, before_pos, map, map_draw3ds, map_size_x, map_size_y)
+        if input_vector.x ~= 0 and input_vector.y ~= 0 then
+            local x = false
+            local y = false
+            self.drawer.position = self.drawer.position:add(vector3(
+                                                                input_vector.x *
+                                                                    scale * 2.0 *
+                                                                    delta_time /
+                                                                    math.sqrt(
+                                                                        2.0), 0,
+                                                                0))
+            x = is_collision(self, before_pos, map, map_draw3ds, map_size_x,
+                             map_size_y)
+            self.drawer.position = self.drawer.position:add(vector3(0,
+                                                                    input_vector.y *
+                                                                        scale *
+                                                                        2.0 *
+                                                                        delta_time /
+                                                                        math.sqrt(
+                                                                            2.0),
+                                                                    0))
+            y = is_collision(self, self.drawer.position:copy(), map,
+                             map_draw3ds, map_size_x, map_size_y)
+            if xor(x, y) then
+                if x then
+                    self.drawer.position = before_pos
+                    self.drawer.position =
+                        self.drawer.position:add(vector3(0, input_vector.y *
+                                                             scale * 2.0 *
+                                                             delta_time, 0))
+                    y = is_collision(self, self.drawer.position:copy(), map,
+                                     map_draw3ds, map_size_x, map_size_y)
+                    if y then
+                        self.drawer.position = before_pos
+                    end
+                end
+                if y then
+                    self.drawer.position = before_pos
+                    self.drawer.position =
+                        self.drawer.position:add(vector3(input_vector.x * scale *
+                                                             2.0 * delta_time,
+                                                         0, 0))
+                    x = is_collision(self, self.drawer.position:copy(), map,
+                                     map_draw3ds, map_size_x, map_size_y)
+                    if x then
+                        self.drawer.position = before_pos
+                    end
+                end
 
+            else
+                if x and y then self.drawer.position = before_pos end
+            end
+        else
+            self.drawer.position = self.drawer.position:add(vector3(
+                                                                input_vector.x *
+                                                                    scale * 2.0 *
+                                                                    delta_time,
+                                                                0, 0))
+            is_collision(self, before_pos, map, map_draw3ds, map_size_x,
+                         map_size_y)
+            before_pos = self.drawer.position:copy()
+            self.drawer.position = self.drawer.position:add(vector3(0,
+                                                                    input_vector.y *
+                                                                        scale *
+                                                                        2.0 *
+                                                                        delta_time,
+                                                                    0))
+            is_collision(self, before_pos, map, map_draw3ds, map_size_x,
+                         map_size_y)
+        end
         if input_vector.x ~= 0 or input_vector.y ~= 0 then
             self.drawer.rotation = vector3(0, 0, -math.atan2(input_vector.x,
                                                              input_vector.y) *
