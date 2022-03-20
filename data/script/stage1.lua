@@ -27,8 +27,8 @@ function setup()
         map_draw3ds[y] = {}
         for x = 1, map_size_x do
             map_draw3ds[y][x] = world()
-            map_draw3ds[y][x].position.x = y
-            map_draw3ds[y][x].position.y = x
+            map_draw3ds[y][x].position.x = y * 2
+            map_draw3ds[y][x].position.y = x * 2
             if map[y][x] == 1 then
                 map_draw3ds[y][x].position.z = 0.5
                 box:add(map_draw3ds[y][x].position, map_draw3ds[y][x].rotation,

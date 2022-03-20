@@ -8,7 +8,7 @@ local function point_t(_x, _y)
 end
 local function dungeon_generator()
     local generator = {
-        division_min_number = 1,
+        division_min_number = 5,
         division_max_number = {},
         division_map = {},
         division_map_index = 1,
@@ -25,22 +25,27 @@ local function dungeon_generator()
         generate = function(self, map, mx, my)
             self.map_size_x = mx
             self.map_size_y = my
-            self.division_max_number = mx
+            self.division_max_number = 5
             self:setup(map)
             self:division(map)
             self:make_room(map)
             self:make_corridor(map)
             self:connect_corridor(map)
+            for i = 1, self.map_size_y do
+                for j = 1, self.map_size_x do
+                    if map[j][i] == nil then
+                        map[j][i] = self.value_room
+                    end
+                end
+            end
+
+            self:debug(map)
         end,
         setup = function(self, map)
             for y = 1, self.map_size_y do
                 map[y] = {}
                 for x = 1, self.map_size_x do
-                    map[y][x] = 0
-                    map[1][x] = 1
-                    map[self.map_size_y][x] = 1
-                    map[y][1] = 1
-                    map[y][self.map_size_x] = 1
+                    map[y][x] = self.value_wall
                 end
             end
         end,
@@ -53,48 +58,40 @@ local function dungeon_generator()
             h = self.map_size_y - 2
             is_horizontal = true
             for i = 1, randomized do
-                if (is_horizontal) then
-                    self:division_horizontal(map, x, y, w, h)
+                if (is_horizontal == true) then
+                    w = self:division_horizontal(map, x, y, w, h)
                 else
-                    self:division_vertical(map, x, y, w, h)
-                    is_horizontal = not is_horizontal;
+                    h = self:division_vertical(map, x, y, w, h)
                 end
-            end
-            -- prepare
-            for i = x, x + w do
-                for j = y, y + h do map[j][i] = self.value_wall end
+                is_horizontal = not is_horizontal;
+                print(x, y, w, h)
             end
         end,
         division_horizontal = function(self, map, x, y, w, h)
-            x1 = random:get_int_range(x + ((x + w) / 2), w)
+            x1 = random:get_int_range(x + (x + w) / 2, w)
             self.division_map[self.division_map_index] = dungeon_room(x, y,
                                                                       x1 - x, h)
             self.division_map_index = self.division_map_index + 1
-            for i = x1, w do
-                for j = y, y + h do map[j][i] = self.value_wall end
-            end
-            w = x1
+            return x1
         end,
         division_vertical = function(self, map, x, y, w, h)
-            y1 = random:get_int_range(y + ((y + h) / 2), h)
+            y1 = random:get_int_range(y + (y + h) / 2, h)
             self.division_map[self.division_map_index] =
-                dungeon_room(x, y1, w, h - y1)
+                dungeon_room(x, y, w, y1 - y)
             self.division_map_index = self.division_map_index + 1
-            for i = x, x + w do
-                for j = y1, h do map[j][i] = self.value_wall end
-            end
-            h = y1
+            return y1
         end,
         make_room = function(self, map)
             for d = 1, self.division_map_index - 1 do
-                x1 = random:get_int_range(self.division_map[d].x,
+                x1 = random:get_int_range(self.division_map[d].x + 1,
                                           self.division_map[d].x +
-                                              self.division_map[d].w)
-                y1 = random:get_int_range(self.division_map[d].y,
+                                              self.division_map[d].w - 1) + 1
+                y1 = random:get_int_range(self.division_map[d].y + 1,
                                           self.division_map[d].y +
-                                              self.division_map[d].h)
-                w1 = random:get_int_range(1, self.division_map[d].w)
-                h1 = random:get_int_range(1, self.division_map[d].h)
+                                              self.division_map[d].h - 1) + 1
+
+                w1 = random:get_int_range(1, self.division_map[d].w - 1)
+                h1 = random:get_int_range(1, self.division_map[d].h - 1)
                 if (x1 + w1) > self.map_size_x - 1 then
                     w1 = self.map_size_x - 1 - x1
                 end
@@ -109,6 +106,7 @@ local function dungeon_generator()
                 end
                 self.rooms[self.rooms_index] = room
                 self.rooms_index = self.rooms_index + 1
+
             end
         end,
         make_corridor = function(self, map)
@@ -172,6 +170,12 @@ local function dungeon_generator()
                         map[j][self.points[i + 1].y] = self.value_corridor;
                     end
                 end
+            end
+        end,
+        debug = function(self, map)
+            for i = 1, self.map_size_y do
+                for j = 1, self.map_size_x do io.write(map[j][i]) end
+                print()
             end
         end
     }

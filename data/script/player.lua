@@ -48,13 +48,9 @@ local function xor(a, b) return (a and not b) or (not a and b) end
 local r1 = {}
 local r2 = {}
 local function decide_pos(map, map_size_x, map_size_y)
-    r1 = random:get_int_range(1, map_size_x - 1);
-    r2 = random:get_int_range(1, map_size_y - 1);
-    if map[r2][r1] == 1 then
-        return true
-    else
-        return false
-    end
+    r1 = random:get_int_range(1, map_size_x)
+    r2 = random:get_int_range(1, map_size_y)
+    return map[r1][r2] == 1
 end
 
 local player = {
@@ -65,11 +61,10 @@ local player = {
         self.model:load("untitled.sim", "player")
         self.drawer = draw3d(tex)
         self.drawer.vertex_name = "player"
-        self.drawer.scale = vector3(0.7, 0.7, 0.7)
         r1 = 0
         r2 = 0
         while decide_pos(map, map_size_x, map_size_y) == true do end
-        self.drawer.position = vector3(r1, r2, 0)
+        self.drawer.position = vector3(r1 * 2, r2 * 2, 0)
     end,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
         calc_input_vector()
