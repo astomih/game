@@ -8,7 +8,7 @@ local function point_t(_x, _y)
 end
 local function dungeon_generator()
     local generator = {
-        division_min_number = 5,
+        division_min_number = {},
         division_max_number = {},
         division_map = {},
         division_map_index = 1,
@@ -25,16 +25,17 @@ local function dungeon_generator()
         generate = function(self, map, mx, my)
             self.map_size_x = mx
             self.map_size_y = my
-            self.division_max_number = 5
+            self.division_min_number = mx / 5 - 1
+            self.division_max_number = mx / 5
             self:setup(map)
             self:division(map)
             self:make_room(map)
             self:make_corridor(map)
             self:connect_corridor(map)
-            for i = 1, self.map_size_y do
-                for j = 1, self.map_size_x do
+            for i = 2, self.map_size_y - 1 do
+                for j = 2, self.map_size_x - 1 do
                     if map[j][i] == nil then
-                        map[j][i] = self.value_room
+                        map[j][i] = self.value_wall
                     end
                 end
             end
@@ -64,7 +65,6 @@ local function dungeon_generator()
                     h = self:division_vertical(map, x, y, w, h)
                 end
                 is_horizontal = not is_horizontal;
-                print(x, y, w, h)
             end
         end,
         division_horizontal = function(self, map, x, y, w, h)

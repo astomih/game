@@ -1,3 +1,4 @@
+local bullet = require "bullet"
 local input_vector = {}
 local function calc_input_vector()
     input_vector = vector3(0, 0, 0)
@@ -25,6 +26,19 @@ local function is_collision(player, before_pos, map, map_draw3ds, map_size_x,
     player_aabb.min = player.drawer.position:add(
                           player.drawer.scale:mul(player.model.aabb.min))
     box_aabb = aabb()
+    for i, v in ipairs(collision_space[(math.floor(
+                           player.drawer.position.y / 2 /
+                               collision_space_division)) + 2][(math.floor(
+                           player.drawer.position.x / 2 /
+                               collision_space_division)) + 2]) do
+        box_aabb.max = v.position:add(v.scale)
+        box_aabb.min = v.position:sub(v.scale)
+        if player_aabb:intersects_aabb(box_aabb) then
+            player.drawer.position = before_pos
+            is_collied = true
+        end
+
+    end
     for i = 1, map_size_x do
         for j = 1, map_size_y do
             if map[i][j] == 1 then
@@ -50,12 +64,13 @@ local r2 = {}
 local function decide_pos(map, map_size_x, map_size_y)
     r1 = random:get_int_range(1, map_size_x)
     r2 = random:get_int_range(1, map_size_y)
-    return map[r1][r2] == 1
+    return map[r2][r1] == 1
 end
 
 local player = {
     drawer = {},
     model = {},
+    bullets = {},
     setup = function(self, map, map_size_x, map_size_y)
         self.model = model()
         self.model:load("untitled.sim", "player")
@@ -68,6 +83,23 @@ local player = {
     end,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
         calc_input_vector()
+        if keyboard:is_key_down(keyLSHIFT) then
+            speed = 4.0
+        else
+            speed = 2.0
+        end
+        -- bullet 
+        if keyboard:is_key_down(keyZ) then
+            local b = bullet(map_draw3ds)
+            b:setup(self)
+            table.insert(self.bullets, b)
+        end
+        for i, v in ipairs(self.bullets) do
+            v:update()
+            if v.current_time > v.life_time then
+                table.remove(self.bullets, i)
+            end
+        end
         if input_vector.x == 0 and input_vector.y == 0 then return 0 end
         scale = self.drawer.scale.x * 2.0
         before_pos = vector3(self.drawer.position.x, self.drawer.position.y,
@@ -77,7 +109,8 @@ local player = {
             local y = false
             self.drawer.position = self.drawer.position:add(vector3(
                                                                 input_vector.x *
-                                                                    scale * 2.0 *
+                                                                    scale *
+                                                                    speed *
                                                                     delta_time /
                                                                     math.sqrt(
                                                                         2.0), 0,
@@ -87,7 +120,7 @@ local player = {
             self.drawer.position = self.drawer.position:add(vector3(0,
                                                                     input_vector.y *
                                                                         scale *
-                                                                        2.0 *
+                                                                        speed *
                                                                         delta_time /
                                                                         math.sqrt(
                                                                             2.0),
@@ -99,7 +132,7 @@ local player = {
                     self.drawer.position = before_pos
                     self.drawer.position =
                         self.drawer.position:add(vector3(0, input_vector.y *
-                                                             scale * 2.0 *
+                                                             scale * speed *
                                                              delta_time, 0))
                     y = is_collision(self, self.drawer.position:copy(), map,
                                      map_draw3ds, map_size_x, map_size_y)
@@ -111,7 +144,7 @@ local player = {
                     self.drawer.position = before_pos
                     self.drawer.position =
                         self.drawer.position:add(vector3(input_vector.x * scale *
-                                                             2.0 * delta_time,
+                                                             speed * delta_time,
                                                          0, 0))
                     x = is_collision(self, self.drawer.position:copy(), map,
                                      map_draw3ds, map_size_x, map_size_y)
@@ -126,7 +159,8 @@ local player = {
         else
             self.drawer.position = self.drawer.position:add(vector3(
                                                                 input_vector.x *
-                                                                    scale * 2.0 *
+                                                                    scale *
+                                                                    speed *
                                                                     delta_time,
                                                                 0, 0))
             is_collision(self, before_pos, map, map_draw3ds, map_size_x,
@@ -135,7 +169,7 @@ local player = {
             self.drawer.position = self.drawer.position:add(vector3(0,
                                                                     input_vector.y *
                                                                         scale *
-                                                                        2.0 *
+                                                                        speed *
                                                                         delta_time,
                                                                     0))
             is_collision(self, before_pos, map, map_draw3ds, map_size_x,
