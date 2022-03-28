@@ -6,11 +6,11 @@ local function bullet(map_draw3ds)
         drawer = {},
         life_time = 0.5,
         current_time = 0,
-        setup = function(self, player)
+        setup = function(self, owner)
             self.drawer = draw3d(tex)
             self.drawer.vertex_name = "bullet"
-            self.drawer.position = player.drawer.position
-            self.drawer.rotation = player.drawer.rotation
+            self.drawer.position = owner.drawer.position
+            self.drawer.rotation = owner.drawer.rotation
             self.drawer.scale = vector3(0.5, 0.5, 0.5)
         end,
         update = function(self)
