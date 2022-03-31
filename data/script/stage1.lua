@@ -1,14 +1,15 @@
 tex = {}
 collision_space = {}
-collision_space_division = 12
+collision_space_division = 6
 local player = require "player"
 local enemy = require "enemy"
-local spider = enemy()
+local enemies = {}
+local enemy_max_num = 10
 local dungeon_generator = require "dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 40
-local map_size_y = 40
+local map_size_x = 30
+local map_size_y = 30
 -- draw object
 local map_draw3ds = {}
 local box = {}
@@ -32,8 +33,9 @@ function setup()
             collision_space[i][j] = {}
         end
     end
+    for i = 1, enemy_max_num do table.insert(enemies, enemy()) end
     player:setup(map, map_size_x, map_size_y)
-    spider:setup(map, map_size_x, map_size_y)
+    for i, v in ipairs(enemies) do v:setup(map, map_size_x, map_size_y) end
     for y = 1, map_size_y do
         map_draw3ds[y] = {}
         for x = 1, map_size_x do
@@ -80,23 +82,34 @@ local function camera_update()
 end
 local function draw()
     player:draw()
-    spider:draw()
+    for i, v in ipairs(enemies) do v:draw() end
     box:draw()
     sprite:draw()
 end
 function update()
-    if player.aabb:intersects_aabb(spider.aabb) then
-        player.hp = player.hp - 10
-        player.font:render_text(player.hp_font_texture, "hp:" .. player.hp,
-                                color(1, 0, 0, 1))
-        player.hp_drawer.scale = player.hp_font_texture:size()
-        player.hp_drawer.position.x = -300 + player.hp_drawer.scale.x / 4
-        player.hp_drawer.position.y = -300
+    for i, v in ipairs(player.bullets) do
+        for j, w in ipairs(enemies) do
+            if v.aabb:intersects_aabb(w.aabb) then
+                table.remove(player.bullets, i)
+                w.hp = w.hp - 10
+                if w.hp < 0 then table.remove(enemies, j) end
+                if table.maxn(enemies) <= 0 then
+                    change_scene("win_scene")
+                end
+            end
+        end
+        if map[math.floor(v.drawer.position.y / 2 + 0.5)][math.floor(v.drawer
+                                                                         .position
+                                                                         .x / 2 +
+                                                                         0.5)] ==
+            1 then table.remove(player.bullets, i) end
     end
     player:update(map, map_draw3ds, map_size_x, map_size_y)
-    spider:update(player, map, map_draw3ds, map_size_x, map_size_y)
+    for i, v in ipairs(enemies) do
+        v:update(player, map, map_draw3ds, map_size_x, map_size_y)
+        v:player_collision(player)
+    end
     camera_update()
     draw()
 end
 -------------------------------------------------------------------------------------
-

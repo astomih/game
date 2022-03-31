@@ -17,17 +17,22 @@ local player = {
     drawer = {},
     model = {},
     bullets = {},
-    hp = 100,
+    hp = {},
     hp_drawer = {},
     hp_font = {},
     hp_font_texture = {},
     aabb = {},
+    bullet_time = {},
+    bullet_timer = {},
     setup = function(self, map, map_size_x, map_size_y)
         self.model = model()
         self.model:load("untitled.sim", "player")
         self.drawer = draw3d(tex)
         self.drawer.vertex_name = "player"
         self.aabb = aabb()
+        self.bullet_time = 0.1
+        self.bullet_timer = 0.0
+        self.hp = 100
 
         self.hp_font_texture = texture()
         self.hp_drawer = draw2d(self.hp_font_texture)
@@ -40,23 +45,29 @@ local player = {
         r2 = 0
         while decide_pos(map, map_size_x, map_size_y) == true do end
         self.drawer.position = vector3(r1 * 2, r2 * 2, 0)
+        self.hp_drawer.position.x = -300 + self.hp_drawer.scale.x / 4
+        self.hp_drawer.position.y = -300
     end,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
         self.aabb.max = self.drawer.position:add(
                             self.drawer.scale:mul(self.model.aabb.max))
         self.aabb.min = self.drawer.position:add(
                             self.drawer.scale:mul(self.model.aabb.min))
+        if self.hp <= 0 then change_scene("gameover") end
         input_vector = calc_input_vector()
         if keyboard:is_key_down(keyLSHIFT) then
             speed = 4.0
         else
             speed = 2.0
         end
+
         -- bullet 
-        if keyboard:is_key_down(keyZ) then
+        self.bullet_timer = self.bullet_timer + delta_time
+        if keyboard:is_key_down(keyZ) and self.bullet_timer > self.bullet_time then
             local b = bullet(map_draw3ds)
             b:setup(self)
             table.insert(self.bullets, b)
+            self.bullet_timer = 0.0
         end
         for i, v in ipairs(self.bullets) do
             v:update()
