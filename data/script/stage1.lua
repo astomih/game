@@ -1,31 +1,39 @@
 tex = {}
 collision_space = {}
-collision_space_division = 6
+brown = {}
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
-local enemy_max_num = 10
+local enemy_max_num = 1
 local dungeon_generator = require "dungeon_generator"
 local world = require "world"
 local map = {}
 local map_size_x = 30
 local map_size_y = 30
+collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}
 local box = {}
 local sprite = {}
 -- menu
 local menu = {}
+local tree = model()
+local music = music()
+tree:load("tree.sim", "tree")
 
 function setup()
+    music:load("Stage1.ogg")
+    music:play()
     tex = texture()
+    brown = texture()
     tex:fill_color(color(1, 1, 1, 1))
+    brown:fill_color(color(0.843, 0.596, 0.043, 1))
     map[map_size_y] = {}
     generator = dungeon_generator()
     generator:generate(map, map_size_x, map_size_y)
     box = draw3d_instanced(tex)
-    box.vertex_name = "BOX"
-    sprite = draw3d_instanced(tex)
+    box.vertex_name = "tree"
+    sprite = draw3d_instanced(brown)
     if map[y][x] == nil then map[y][x] = 0 end
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
@@ -42,6 +50,8 @@ function setup()
             map_draw3ds[y][x] = world()
             map_draw3ds[y][x].position.x = x * 2
             map_draw3ds[y][x].position.y = y * 2
+            sprite:add(map_draw3ds[y][x].position, map_draw3ds[y][x].rotation,
+                       map_draw3ds[y][x].scale)
             if map[y][x] == 1 then
                 map_draw3ds[y][x].position.z = 0.5
                 map_draw3ds[y][x].aabb = aabb()
@@ -60,10 +70,6 @@ function setup()
                     collision_space[collision_space_y + 2][collision_space_x + 2],
                     map_draw3ds[y][x])
 
-            end
-            if map[y][x] == 0 then
-                sprite:add(map_draw3ds[y][x].position,
-                           map_draw3ds[y][x].rotation, map_draw3ds[y][x].scale)
             end
         end
     end

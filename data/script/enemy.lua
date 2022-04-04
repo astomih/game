@@ -1,4 +1,6 @@
 local is_collision = require "is_collision"
+local bombed = sound()
+bombed:load("bombed.wav")
 local r1 = {}
 local r2 = {}
 local function decide_pos(map, map_size_x, map_size_y)
@@ -9,7 +11,7 @@ end
 local enemy = function()
     local object = {
         drawer = {},
-        speed = 5,
+        speed = 4,
         model = {},
         hp = 100,
         aabb = {},
@@ -61,9 +63,10 @@ local enemy = function()
         player_collision = function(self, player)
             if self.aabb:intersects_aabb(player.aabb) then
                 if self.is_collision_first then
+                    bombed:play()
                     player.hp = player.hp - 10
                     player.font:render_text(player.hp_font_texture,
-                                            "hp:" .. player.hp,
+                                            "HP:" .. player.hp,
                                             color(1, 0, 0, 1))
                     player.hp_drawer.scale = player.hp_font_texture:size()
                     player.hp_drawer.position.x = -300 +
@@ -74,9 +77,10 @@ local enemy = function()
                 else
                     self.collision_timer = self.collision_timer + delta_time
                     if self.collision_timer > self.collision_time then
+                        bombed:play()
                         player.hp = player.hp - 10
                         player.font:render_text(player.hp_font_texture,
-                                                "hp:" .. player.hp,
+                                                "HP:" .. player.hp,
                                                 color(1, 0, 0, 1))
                         player.hp_drawer.scale = player.hp_font_texture:size()
                         player.hp_drawer.position.x = -300 +

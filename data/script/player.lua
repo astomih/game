@@ -38,7 +38,7 @@ local player = {
         self.hp_drawer = draw2d(self.hp_font_texture)
         self.font = font()
         self.font:load(DEFAULT_FONT, 64)
-        self.font:render_text(self.hp_font_texture, "hp:" .. self.hp,
+        self.font:render_text(self.hp_font_texture, "HP:" .. self.hp,
                               color(1, 0, 0, 1))
         self.hp_drawer.scale = self.hp_font_texture:size()
         r1 = 0

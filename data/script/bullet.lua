@@ -1,4 +1,7 @@
 local m = model()
+local sound = sound()
+sound:load("shot.wav")
+
 m:load("bullet.sim", "bullet")
 local function bullet(map_draw3ds)
     local object = {
@@ -14,6 +17,7 @@ local function bullet(map_draw3ds)
             self.drawer.position = owner.drawer.position
             self.drawer.rotation = owner.drawer.rotation
             self.drawer.scale = vector3(0.5, 0.5, 0.5)
+            sound:play()
         end,
         update = function(self)
             self.aabb.max = self.drawer.position:add(

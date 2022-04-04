@@ -1,1 +1,9 @@
+src
+build
+build_debug
+build_web
+external
+*.exe
+.cache
+.vscode
 *.exe

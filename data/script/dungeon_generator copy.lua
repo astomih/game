@@ -25,8 +25,8 @@ local function dungeon_generator()
         generate = function(self, map, mx, my)
             self.map_size_x = mx
             self.map_size_y = my
-            self.division_min_number = 10
-            self.division_max_number = 10
+            self.division_min_number = mx / 5 - 1
+            self.division_max_number = mx / 5
             self:setup(map)
             self:division(map)
             self:make_room(map)
@@ -51,54 +51,47 @@ local function dungeon_generator()
             end
         end,
         division = function(self, map)
-            local randomized = 8
+            local randomized = random:get_int_range(self.division_min_number,
+                                                    self.division_max_number)
             x = 2
             y = 2
             w = self.map_size_x - 2
             h = self.map_size_y - 2
-            f1 = true
-            f2 = true
-            while f1 and f2 do
-                if self.map_size_x > x + self.division_min_number then
-                    local max = self.division_max_number
-                    if x + max >= self.map_size_x - 2 then
-                        max = self.division_min_number
-                    end
-                    w = random:get_int_range(self.division_min_number, max)
-                    self.division_map[self.division_map_index] = dungeon_room(x,
-                                                                              y,
-                                                                              w,
-                                                                              h)
-                    self.division_map_index = self.division_map_index + 1
-                    x = x + w
+            is_horizontal = true
+            for i = 1, randomized do
+                if (is_horizontal == true) then
+                    w = self:division_horizontal(map, x, y, w, h)
                 else
-                    f1 = false
+                    h = self:division_vertical(map, x, y, w, h)
                 end
-
-                if self.map_size_y > y + self.division_min_number then
-                    local max = self.division_max_number
-                    if y + max >= self.map_size_y - 2 then
-                        max = self.division_min_number
-                    end
-                    h = random:get_int_range(self.division_min_number, max)
-                    self.division_map[self.division_map_index] = dungeon_room(x,
-                                                                              y,
-                                                                              w,
-                                                                              h)
-                    self.division_map_index = self.division_map_index + 1
-                    y = y + h
-                else
-                    f2 = false
-                end
+                is_horizontal = not is_horizontal;
             end
+        end,
+        division_horizontal = function(self, map, x, y, w, h)
+            x1 = random:get_int_range(x + w / 2, w)
+            self.division_map[self.division_map_index] = dungeon_room(x, y,
+                                                                      x1 - x, h)
+            self.division_map_index = self.division_map_index + 1
+            return x1
+        end,
+        division_vertical = function(self, map, x, y, w, h)
+            y1 = random:get_int_range(y + h / 3, h)
+            self.division_map[self.division_map_index] =
+                dungeon_room(x, y, w, y1 - y)
+            self.division_map_index = self.division_map_index + 1
+            return y1
         end,
         make_room = function(self, map)
             for d = 1, self.division_map_index - 1 do
-                x1 = self.division_map[d].x + 3
-                y1 = self.division_map[d].y + 3
+                x1 = random:get_int_range(self.division_map[d].x + 1,
+                                          self.division_map[d].x +
+                                              self.division_map[d].w - 1) + 1
+                y1 = random:get_int_range(self.division_map[d].y + 1,
+                                          self.division_map[d].y +
+                                              self.division_map[d].h - 1) + 1
 
-                w1 = self.division_map[d].w - 3
-                h1 = self.division_map[d].h - 3
+                w1 = random:get_int_range(1, self.division_map[d].w - 1)
+                h1 = random:get_int_range(1, self.division_map[d].h - 1)
                 if (x1 + w1) > self.map_size_x - 1 then
                     w1 = self.map_size_x - 1 - x1
                 end
@@ -161,15 +154,21 @@ local function dungeon_generator()
                 local min = math.min(self.points[i].x, self.points[i + 1].x)
                 local max = math.max(self.points[i].x, self.points[i + 1].x)
                 for j = min, max do
-                    map[self.points[i].y][j] = self.value_corridor
-                    map[self.points[i + 1].y][j] = self.value_corridor
+                    if (min == self.points[i].x) then
+                        map[self.points[i].y][j] = self.value_corridor
+                    else
+                        map[self.points[i + 1].y][j] = self.value_corridor
+                    end
                 end
 
                 min = math.min(self.points[i].y, self.points[i + 1].y)
                 max = math.max(self.points[i].y, self.points[i + 1].y)
                 for j = min, max do
-                    map[j][self.points[i].x] = self.value_corridor;
-                    map[j][self.points[i + 1].y] = self.value_corridor;
+                    if (min == self.points[i].y) then
+                        map[j][self.points[i].x] = self.value_corridor;
+                    else
+                        map[j][self.points[i + 1].y] = self.value_corridor;
+                    end
                 end
             end
         end,
