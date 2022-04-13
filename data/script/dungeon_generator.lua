@@ -25,8 +25,8 @@ local function dungeon_generator()
         generate = function(self, map, mx, my)
             self.map_size_x = mx
             self.map_size_y = my
-            self.division_min_number = 10
-            self.division_max_number = 10
+            self.division_min_number = 9
+            self.division_max_number = 20
             self:setup(map)
             self:division(map)
             self:make_room(map)
@@ -51,7 +51,6 @@ local function dungeon_generator()
             end
         end,
         division = function(self, map)
-            local randomized = 8
             x = 2
             y = 2
             w = self.map_size_x - 2
@@ -117,36 +116,24 @@ local function dungeon_generator()
             end
         end,
         make_corridor = function(self, map)
-            for index = 1, self.rooms_index - 2 do
-                local point = random:get_int_range(self.rooms[index + 1].y,
-                                                   self.rooms[index + 1].y +
-                                                       self.rooms[index + 1].h)
-                if point > self.map_size_y then
-                    point = self.map_size_y
-                end
-                if point < 1 then point = 1 end
+            for index = 1, self.rooms_index - 1 do
+                local point = random:get_int_range(self.rooms[index].y,
+                                                   self.rooms[index].y +
+                                                       self.rooms[index].h)
 
                 target = random:get_int_range(self.rooms[index].x,
                                               self.rooms[index].x +
                                                   self.rooms[index].w)
                 min = math.min(self.division_map[index].x, target)
-                if min < 1 then min = 1 end
                 max = math.max(self.division_map[index].x, target)
-                if (max > self.map_size_x - 1) then
-                    max = self.map_size_x - 1
-                end
                 for i = min, max do
-                    map[point][i] = value_corridor
+                    map[point][i] = self.value_corridor
                 end
                 target = random:get_int_range(self.rooms[index].y,
                                               self.rooms[index].y +
                                                   self.rooms[index].h);
                 min = math.min(point, target)
                 max = math.max(point, target)
-                if (min < 1) then min = 1 end
-                if (max > self.map_size_y - 1) then
-                    max = self.map_size_y - 1
-                end
                 for i = min, max do
                     map[i][self.rooms[index].x] = self.value_corridor
                 end
