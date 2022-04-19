@@ -4,19 +4,19 @@ brown = {}
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
-local enemy_max_num = 1
-local dungeon_generator = require "dungeon_generator"
+local enemy_max_num = 10
+local dungeon_generator = require "dungeon_generator/dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 30
-local map_size_y = 30
+local map_size_x = 50
+local map_size_y = 50
 collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}
 local box = {}
 local sprite = {}
--- menu
 local menu = {}
+-- assets
 local tree = model()
 local music = music()
 tree:load("tree.sim", "tree")
@@ -34,7 +34,6 @@ function setup()
     box = draw3d_instanced(tex)
     box.vertex_name = "tree"
     sprite = draw3d_instanced(brown)
-    if map[y][x] == nil then map[y][x] = 0 end
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
         for j = 1, collision_space_division + 2 do
@@ -59,6 +58,7 @@ function setup()
                     map_draw3ds[y][x].position:add(map_draw3ds[y][x].scale)
                 map_draw3ds[y][x].aabb.min =
                     map_draw3ds[y][x].position:sub(map_draw3ds[y][x].scale)
+                map_draw3ds[y][x].scale = vector3(1, 1, 3)
 
                 box:add(map_draw3ds[y][x].position, map_draw3ds[y][x].rotation,
                         map_draw3ds[y][x].scale)
