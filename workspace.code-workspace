@@ -4,11 +4,8 @@
 			"path": "."
 		},
 		{
-			"path": "external\\sinen"
-		},
-		{
-			"path": "..\\sinen_app"
-		},
+			"path": "external/sinen"
+		}
 	],
 	"settings": {
 		"files.associations": {

@@ -32,10 +32,6 @@ layout(location=4) out vec3 fragWorldPos;
 void main()
 {
   mat4 inworldmat;
-  inworldmat[0] = m1;
-  inworldmat[1] = m2;
-  inworldmat[2] = m3;
-  inworldmat[3] = m4;
   inworldmat = world;
 
   vec4 worldpos = vec4(inPos,1.0) * inworldmat;

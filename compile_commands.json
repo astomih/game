@@ -1,0 +1,462 @@
+[
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/include -IC:/game/external/sinen/include/Nen -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o CMakeFiles\\sinen_app.dir\\src\\main.cpp.obj -c C:\\game\\src\\main.cpp",
+  "file": "C:\\game\\src\\main.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_demo.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_demo.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_demo.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_draw.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_draw.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_draw.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_impl_opengl3.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_opengl3.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_opengl3.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_impl_sdl.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_sdl.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_sdl.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_impl_vulkan.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_vulkan.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_impl_vulkan.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_tables.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_tables.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_tables.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGui\\source\\imgui_widgets.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_widgets.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGui\\source\\imgui_widgets.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\external\\ImGuiColorTextEdit\\TextEditor.cpp.obj -c C:\\game\\external\\sinen\\external\\ImGuiColorTextEdit\\TextEditor.cpp",
+  "file": "C:\\game\\external\\sinen\\external\\ImGuiColorTextEdit\\TextEditor.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lapi.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lapi.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lapi.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lauxlib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lauxlib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lauxlib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lbaselib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lbaselib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lbaselib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lcode.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lcode.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lcode.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ldblib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ldblib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ldblib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ldebug.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ldebug.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ldebug.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ldo.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ldo.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ldo.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ldump.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ldump.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ldump.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lfunc.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lfunc.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lfunc.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lgc.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lgc.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lgc.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\linit.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\linit.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\linit.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\liolib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\liolib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\liolib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\llex.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\llex.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\llex.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lmathlib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lmathlib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lmathlib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lmem.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lmem.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lmem.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\loadlib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\loadlib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\loadlib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lobject.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lobject.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lobject.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lopcodes.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lopcodes.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lopcodes.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\loslib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\loslib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\loslib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lparser.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lparser.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lparser.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lstate.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lstate.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lstate.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lstring.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lstring.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lstring.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lstrlib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lstrlib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lstrlib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ltable.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ltable.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ltable.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ltablib.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ltablib.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ltablib.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\ltm.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\ltm.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\ltm.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lua.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lua.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lua.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\luac.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\luac.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\luac.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lundump.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lundump.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lundump.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lvm.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lvm.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lvm.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\lzio.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\lzio.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\lzio.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\Lua\\source\\print.c.obj -c C:\\game\\external\\sinen\\external\\Lua\\source\\print.c",
+  "file": "C:\\game\\external\\sinen\\external\\Lua\\source\\print.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -g -o external\\sinen\\CMakeFiles\\nen.dir\\external\\mojoAL\\mojoal.c.obj -c C:\\game\\external\\sinen\\external\\mojoAL\\mojoal.c",
+  "file": "C:\\game\\external\\sinen\\external\\mojoAL\\mojoal.c"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Audio\\MusicSystem.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Audio\\MusicSystem.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Audio\\MusicSystem.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Audio\\SoundEvent.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Audio\\SoundEvent.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Audio\\SoundEvent.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Audio\\SoundSystem.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Audio\\SoundSystem.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Audio\\SoundSystem.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Color\\Color.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Color\\Color.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Color\\Color.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Font\\Font.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Font\\Font.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Font\\Font.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\GUI\\Button.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\GUI\\Button.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\GUI\\Button.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\GUI\\DialogBox.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\GUI\\DialogBox.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\GUI\\DialogBox.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\GUI\\HUD.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\GUI\\HUD.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\GUI\\HUD.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\GUI\\PauseMenu.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\GUI\\PauseMenu.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\GUI\\PauseMenu.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\GUI\\UIScreen.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\GUI\\UIScreen.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\GUI\\UIScreen.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\IO\\AssetReader.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\IO\\AssetReader.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\IO\\AssetReader.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Input\\GameController.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Input\\GameController.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Input\\GameController.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Input\\InputSystem.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Input\\InputSystem.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Input\\InputSystem.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Logger\\Logger.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Logger\\Logger.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Logger\\Logger.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Math\\Math.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Math\\Math.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Math\\Math.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Math\\Random.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Math\\Random.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Math\\Random.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Math\\Transform.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Math\\Transform.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Math\\Transform.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Network\\TCPClient.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Network\\TCPClient.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Network\\TCPClient.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Network\\TCPSocket.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Network\\TCPSocket.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Network\\TCPSocket.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Physics\\Collision.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Physics\\Collision.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Physics\\Collision.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\OpenGL\\GLRenderer.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\OpenGL\\GLRenderer.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\OpenGL\\GLRenderer.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\OpenGL\\ShaderGL.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\OpenGL\\ShaderGL.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\OpenGL\\ShaderGL.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Renderer.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Renderer.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Renderer.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\Pipeline.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\Pipeline.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\Pipeline.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\PipelineLayout.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\PipelineLayout.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\PipelineLayout.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\Swapchain.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\Swapchain.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\Swapchain.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\VKBase.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VKBase.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VKBase.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\VKRenderer.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VKRenderer.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VKRenderer.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Render\\Vulkan\\VulkanShader.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VulkanShader.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Render\\Vulkan\\VulkanShader.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Scene\\Scene.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Scene\\Scene.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Scene\\Scene.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Script\\Script.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Script\\Script.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Script\\Script.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Shader\\Shader.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Shader\\Shader.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Shader\\Shader.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Texture\\Texture.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Texture\\Texture.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Texture\\Texture.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Texture\\texture_system.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Texture\\texture_system.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Texture\\texture_system.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Time\\Time.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Time\\Time.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Time\\Time.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Time\\Timer.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Time\\Timer.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Time\\Timer.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Utility\\Singleton.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Utility\\Singleton.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Utility\\Singleton.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Utility\\handler.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Utility\\handler.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Utility\\handler.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Vertex\\Vertex.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Vertex\\Vertex.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Vertex\\Vertex.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Vertex\\VertexArray.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Vertex\\VertexArray.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Vertex\\VertexArray.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Vertex\\box.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Vertex\\box.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Vertex\\box.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Vertex\\sprite.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Vertex\\sprite.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Vertex\\sprite.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\Window\\Window.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\Window\\Window.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\Window\\Window.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\camera\\camera.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\camera\\camera.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\camera\\camera.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\draw_object\\draw_object_wrapper.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\draw_object\\draw_object_wrapper.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\draw_object\\draw_object_wrapper.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\instancing\\instancing.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\instancing\\instancing.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\instancing\\instancing.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\instancing\\instancing_wrapper.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\instancing\\instancing_wrapper.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\instancing\\instancing_wrapper.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\manager\\manager.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\manager\\manager.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\manager\\manager.cpp"
+},
+{
+  "directory": "C:/game/build_debug",
+  "command": "C:\\msys64\\mingw64\\bin\\clang++.exe -IC:/game/external/sinen/. -IC:/game/external/sinen/./include -IC:/game/external/sinen/./include/Nen -IC:/game/external/sinen/external/ImGui/include -IC:/game/external/sinen/external/ImGuiColorTextEdit -IC:/game/external/sinen/external/sol2/include -IC:/game/external/sinen/external/Lua/include -IC:/game/external/sinen/external/VulkanMemoryAllocator/include -IC:/game/external/sinen/external/mojoAL/AL -IC:/game/external/sinen/external/mojoAL -IC:/VulkanSDK/1.2.148.1/Include -IC:/msys64/mingw64/include/SDL2 -O2 -march=native -g -std=gnu++20 -o external\\sinen\\CMakeFiles\\nen.dir\\src\\Nen\\model\\model.cpp.obj -c C:\\game\\external\\sinen\\src\\Nen\\model\\model.cpp",
+  "file": "C:\\game\\external\\sinen\\src\\Nen\\model\\model.cpp"
+}
+]

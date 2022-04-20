@@ -1,4 +1,3 @@
-tex = {}
 collision_space = {}
 brown = {}
 local player = require "player"

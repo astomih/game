@@ -4,12 +4,12 @@ local hello_drawer = {}
 
 function setup()
     hello_texture = texture()
-    hello_drawer = draw2d_instanced(hello_texture)
+    hello_drawer = draw2d(hello_texture)
     hello_font = font()
     hello_font:load(DEFAULT_FONT, 64)
     hello_font:render_text(hello_texture, "Press SPACE to start",
                            color(0.5, 0.5, 1, 1))
-    hello_drawer:add(vector2(0, 0), 0, hello_texture:size())
+    hello_drawer.scale = hello_texture:size()
 end
 
 function update()
