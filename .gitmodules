@@ -1,0 +1,3 @@
+[submodule "external/sinen"]
+	path = external/sinen
+	url = https://github.com/astomih/sinen.git
