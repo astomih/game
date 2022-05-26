@@ -29,9 +29,14 @@ local function dungeon_generator()
                     map[i][j] = dungeon.levels[1].matrix[i - 1][j - 1].class
                 end
             end
-            self:debug(map)
-        end,
-        debug = function(self, map) end
+            for i = 1, mx do
+                for j = 1, my do
+                    if i == 1 or i == mx then map[i][j] = 1 end
+                    if j == 1 or j == my then map[i][j] = 1 end
+                end
+            end
+
+        end
     }
     return generator
 end

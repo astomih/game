@@ -7,14 +7,16 @@ local function bullet(map_draw3ds)
     local object = {
         speed = 20,
         drawer = {},
-        life_time = 0.5,
+        life_time = 1.5,
         current_time = 0,
         aabb = {},
         setup = function(self, owner)
             self.aabb = aabb()
             self.drawer = draw3d(tex)
             self.drawer.vertex_name = "bullet"
-            self.drawer.position = owner.drawer.position
+            self.drawer.position = vector3(owner.drawer.position.x,
+                                           owner.drawer.position.y + 0.5,
+                                           owner.drawer.position.z)
             self.drawer.rotation = owner.drawer.rotation
             self.drawer.scale = vector3(0.5, 0.5, 0.5)
             sound:play()

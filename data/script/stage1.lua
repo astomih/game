@@ -1,14 +1,15 @@
 collision_space = {}
 brown = {}
+fps_mode = false
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
-local enemy_max_num = 10
+local enemy_max_num = 5
 local dungeon_generator = require "dungeon_generator/dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 50
-local map_size_y = 50
+local map_size_x = 40
+local map_size_y = 40
 collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}
@@ -21,6 +22,9 @@ local music = music()
 tree:load("tree.sim", "tree")
 
 function setup()
+    print("Arrow key: move")
+    print("Z: shot")
+    print("SEARCH AND DESTROY!")
     music:load("Stage1.ogg")
     music:play()
     tex = texture()
@@ -76,13 +80,29 @@ function setup()
 end
 
 local function camera_update()
-    offset = 5.0
-    camera.position = vector3(player.drawer.position.x,
-                              player.drawer.position.y - offset,
-                              player.drawer.position.z + offset)
-    camera.target = vector3(player.drawer.position.x,
-                            player.drawer.position.y + offset,
-                            player.drawer.position.z)
+    local offset = 5.0
+    if fps_mode then
+        camera.position = vector3(player.drawer.position.x,
+                                  player.drawer.position.y + 0.5,
+                                  player.drawer.position.z + 2)
+        camera.target = vector3(player.drawer.position.x +
+                                    -math.sin(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
+                                player.drawer.position.y +
+                                    math.cos(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
+                                player.drawer.position.z)
+    else
+        camera.position = vector3(player.drawer.position.x,
+                                  player.drawer.position.y - offset,
+                                  player.drawer.position.z + offset)
+        camera.target = vector3(player.drawer.position.x,
+                                player.drawer.position.y + offset,
+                                player.drawer.position.z)
+
+    end
     camera:update()
 end
 local function draw()
@@ -118,3 +138,4 @@ function update()
     draw()
 end
 -------------------------------------------------------------------------------------
+

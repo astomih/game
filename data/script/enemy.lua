@@ -4,8 +4,8 @@ bombed:load("bombed.wav")
 local r1 = {}
 local r2 = {}
 local function decide_pos(map, map_size_x, map_size_y)
-    r1 = random:get_int_range(1, map_size_x)
-    r2 = random:get_int_range(1, map_size_y)
+    r1 = math.random(1, map_size_x)
+    r2 = math.random(1, map_size_y)
     return map[r2][r1] == 1
 end
 local enemy = function()
@@ -18,6 +18,11 @@ local enemy = function()
         is_collision_first = {},
         collision_time = {},
         collision_timer = {},
+        get_forward_z = function(drawer)
+
+            return vector2(-math.sin(math.rad(drawer.rotation.z)),
+                           math.cos(math.rad(-drawer.rotation.z)))
+        end,
         setup = function(self, map, map_size_x, map_size_y)
             self.model = model()
             self.model:load("spider.sim", "enemy")
@@ -48,12 +53,14 @@ local enemy = function()
             local before_pos = self.drawer.position:copy()
             self.drawer.position.x = self.drawer.position.x + delta_time *
                                          self.speed *
-                                         -math.sin(
-                                             math.rad(self.drawer.rotation.z))
+                                         self.get_forward_z(self.drawer).x
+            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
+                self.drawer.position = before_pos
+            end
+            before_pos = self.drawer.position:copy()
             self.drawer.position.y = self.drawer.position.y + delta_time *
                                          self.speed *
-                                         math.cos(
-                                             math.rad(-self.drawer.rotation.z))
+                                         self.get_forward_z(self.drawer).y
             if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
                 self.drawer.position = before_pos
             end
@@ -67,12 +74,8 @@ local enemy = function()
                     player.hp = player.hp - 10
                     player.font:render_text(player.hp_font_texture,
                                             "HP:" .. player.hp,
-                                            color(1, 0, 0, 1))
+                                            color(1, 1, 1, 1))
                     player.hp_drawer.scale = player.hp_font_texture:size()
-                    player.hp_drawer.position.x = -300 +
-                                                      player.hp_drawer.scale.x /
-                                                      4
-                    player.hp_drawer.position.y = -300
                     self.is_collision_first = false
                 else
                     self.collision_timer = self.collision_timer + delta_time
@@ -81,12 +84,8 @@ local enemy = function()
                         player.hp = player.hp - 10
                         player.font:render_text(player.hp_font_texture,
                                                 "HP:" .. player.hp,
-                                                color(1, 0, 0, 1))
+                                                color(1, 1, 1, 1))
                         player.hp_drawer.scale = player.hp_font_texture:size()
-                        player.hp_drawer.position.x = -300 +
-                                                          player.hp_drawer.scale
-                                                              .x / 4
-                        player.hp_drawer.position.y = -300
                         self.collision_timer = 0.0
                     end
                 end

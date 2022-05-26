@@ -8,7 +8,7 @@ function setup()
     hello_font = font()
     hello_font:load(DEFAULT_FONT, 64)
     hello_font:render_text(hello_texture, "Press SPACE to start",
-                           color(0.5, 0.5, 1, 1))
+                           color(1, 1, 1, 1))
     hello_drawer.scale = hello_texture:size()
 end
 

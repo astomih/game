@@ -17,6 +17,7 @@ elseif(EMSCRIPTEN)
   target_include_directories(index PUBLIC ${INCLUDE_DIRS})
   set(CMAKE_CXX_FLAGS
       "${CMAKE_CXX_FLAGS} \
+    -O2 \
 		-Wno-unused-command-line-argument \
 		-s USE_SDL=2 \
 		-s USE_SDL_IMAGE=2 \
@@ -28,7 +29,6 @@ elseif(EMSCRIPTEN)
 		-s USE_SDL_TTF=2 \
 		-s USE_SDL_MIXER=2 \
 		-s USE_SDL_NET=2 \
-		-s WASM=1 \
 		--preload-file=data \
 		-s ALLOW_MEMORY_GROWTH \
 		--shell-file shell_minimum.html \
