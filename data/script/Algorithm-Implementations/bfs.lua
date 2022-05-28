@@ -29,6 +29,10 @@ local fifo = require "Algorithm-Implementations/utils/fifo"
 
 -- Clears nodes data between consecutive path requests.
 local function resetForNextSearch(bfs)
+    for _, node in ipairs(bfs.handler.getAllNodes()) do
+        node.visited = nil
+        node.parent = nil
+    end
     for node in pairs(bfs.visited) do node.parent, node.visited = nil, nil end
     bfs.queue:clear()
     bfs.visited = {}
@@ -75,6 +79,7 @@ function BFS:findPath(start, goal)
             end
         end
     end
+    return nil
 end
 
 return BFS
