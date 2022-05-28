@@ -1,4 +1,12 @@
 local is_collision = require "is_collision"
+local BFS = require "Algorithm-Implementations/bfs"
+
+local function same(t, p, comp)
+    for k, v in ipairs(t) do if not comp(v, p[k]) then return false end end
+    return true
+end
+local comp = function(a, b) return a.x == b[1] and a.y == b[2] end
+
 local bombed = sound()
 bombed:load("bombed.wav")
 local r1 = {}
@@ -18,20 +26,23 @@ local enemy = function()
         is_collision_first = {},
         collision_time = {},
         collision_timer = {},
+        map = {},
+        gm_handler = require "Algorithm-Implementations/handlers/gridmap_handler",
+        bfs = {},
         get_forward_z = function(drawer)
-
             return vector2(-math.sin(math.rad(drawer.rotation.z)),
                            math.cos(math.rad(-drawer.rotation.z)))
         end,
-        setup = function(self, map, map_size_x, map_size_y)
+        setup = function(self, _map, map_size_x, map_size_y)
             self.model = model()
             self.model:load("spider.sim", "enemy")
             self.drawer = draw3d(tex)
             self.drawer.vertex_name = "enemy"
             self.aabb = aabb()
+            self.map = _map
             r1 = 0
             r2 = 0
-            while decide_pos(map, map_size_x, map_size_y) == true do end
+            while decide_pos(_map, map_size_x, map_size_y) == true do end
             self.drawer.position = vector3(r1 * 2, r2 * 2, 1)
             self.drawer.scale = vector3(0.3, 0.3, 0.3)
             self.is_collision_first = true
@@ -50,21 +61,38 @@ local enemy = function()
                                                        self.drawer.position.x,
                                                    player.drawer.position.y -
                                                        self.drawer.position.y)))
-            local before_pos = self.drawer.position:copy()
-            self.drawer.position.x = self.drawer.position.x + delta_time *
-                                         self.speed *
-                                         self.get_forward_z(self.drawer).x
-            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
-                self.drawer.position = before_pos
-            end
-            before_pos = self.drawer.position:copy()
-            self.drawer.position.y = self.drawer.position.y + delta_time *
-                                         self.speed *
-                                         self.get_forward_z(self.drawer).y
-            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
-                self.drawer.position = before_pos
-            end
+            self.gm_handler.init(self.map)
+            self.gm_handler.diagonal = false
+            self.bfs = BFS(self.gm_handler)
+            local start = self.gm_handler.getNode(
+                              math.floor(self.drawer.position.x / 2 + 0.5),
+                              math.floor(self.drawer.position.y / 2 + 0.5))
+            local goal = self.gm_handler.getNode(
+                             math.floor(player.drawer.position.x / 2 + 0.5),
+                             math.floor(player.drawer.position.y / 2 + 0.5))
+            local path = self.bfs:findPath(start, goal)
 
+            if path ~= nil then
+                if path[2] ~= nil then
+                    self.drawer.position.x =
+                        self.drawer.position.x +
+                            (path[2].x * 2 - self.drawer.position.x) *
+                            delta_time * 3.0
+                    self.drawer.position.y =
+                        self.drawer.position.y +
+                            (path[2].y * 2 - self.drawer.position.y) *
+                            delta_time * 3.0
+                else
+                    self.drawer.position.x =
+                        self.drawer.position.x + delta_time * self.speed *
+                            self.get_forward_z(self.drawer).x
+                    self.drawer.position.y =
+                        self.drawer.position.y + delta_time * self.speed *
+                            self.get_forward_z(self.drawer).y
+
+                end
+
+            end
         end,
         draw = function(self) self.drawer:draw() end,
         player_collision = function(self, player)

@@ -1,6 +1,6 @@
 collision_space = {}
 brown = {}
-fps_mode = false
+fps_mode = true
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
@@ -8,8 +8,8 @@ local enemy_max_num = 5
 local dungeon_generator = require "dungeon_generator/dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 40
-local map_size_y = 40
+local map_size_x = 50
+local map_size_y = 50
 collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}
@@ -31,11 +31,10 @@ function setup()
     brown = texture()
     tex:fill_color(color(1, 1, 1, 1))
     brown:fill_color(color(0.843, 0.596, 0.043, 1))
-    map[map_size_y] = {}
     generator = dungeon_generator()
     generator:generate(map, map_size_x, map_size_y)
     box = draw3d_instanced(tex)
-    box.vertex_name = "tree"
+    box.vertex_name = "BOX"
     sprite = draw3d_instanced(brown)
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
@@ -112,6 +111,7 @@ local function draw()
     sprite:draw()
 end
 function update()
+    if keyboard:key_state(keyX) == buttonPRESSED then fps_mode = not fps_mode end
     for i, v in ipairs(player.bullets) do
         for j, w in ipairs(enemies) do
             if v.aabb:intersects_aabb(w.aabb) then
