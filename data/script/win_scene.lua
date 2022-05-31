@@ -13,6 +13,8 @@ end
 
 function update()
     hello_drawer:draw()
-    if keyboard:is_key_down(keySPACE) then change_scene("main") end
+    if keyboard:key_state(keySPACE) == buttonPRESSED then
+        change_scene("main")
+    end
 end
 

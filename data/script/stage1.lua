@@ -8,8 +8,8 @@ local enemy_max_num = 5
 local dungeon_generator = require "dungeon_generator/dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 50
-local map_size_y = 50
+local map_size_x = 25
+local map_size_y = 25
 collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}

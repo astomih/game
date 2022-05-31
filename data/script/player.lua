@@ -42,16 +42,15 @@ local player = {
         self.hp_font_texture = texture()
         self.hp_drawer = draw2d(self.hp_font_texture)
         self.font = font()
-        self.font:load(DEFAULT_FONT, 64)
-        self.font:render_text(self.hp_font_texture, "HP:" .. self.hp,
-                              color(1, 1, 1, 1))
+        self.font:load("SoukouMincho-Font/SoukouMincho.ttf", 64)
+        self.render_text(self)
         self.hp_drawer.scale = self.hp_font_texture:size()
         r1 = 0
         r2 = 0
         while decide_pos(map, map_size_x, map_size_y) == true do end
         self.drawer.position = vector3(r1 * 2, r2 * 2, 0)
-        self.hp_drawer.position.x = -1280 / 2 + 50 + self.hp_drawer.scale.x / 4
-        self.hp_drawer.position.y = -300
+        self.hp_drawer.position.x = -1280 / 2 + self.hp_drawer.scale.x / 2
+        self.hp_drawer.position.y = 300
     end,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
         self.aabb.max = self.drawer.position:add(
@@ -206,6 +205,10 @@ local player = {
     draw = function(self)
         if not fps_mode then self.drawer:draw() end
         self.hp_drawer:draw()
+    end,
+    render_text = function(self)
+        self.font:render_text(self.hp_font_texture, "残体力:" .. self.hp,
+                              color(0.6, 1, 0.6, 1))
     end
 }
 

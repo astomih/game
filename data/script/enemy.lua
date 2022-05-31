@@ -2,6 +2,7 @@ local is_collision = require "is_collision"
 local BFS = require "Algorithm-Implementations/bfs"
 local gm_handler = require "Algorithm-Implementations/handlers/gridmap_handler"
 local gm_handler_inited = false
+gm_handler_inited = false
 
 local function same(t, p, comp)
     for k, v in ipairs(t) do if not comp(v, p[k]) then return false end end
@@ -35,6 +36,7 @@ local enemy = function()
                            math.cos(math.rad(-drawer.rotation.z)))
         end,
         setup = function(self, _map, map_size_x, map_size_y)
+            gm_handler_inited = false
             self.model = model()
             self.model:load("spider.sim", "enemy")
             self.drawer = draw3d(tex)
@@ -50,7 +52,7 @@ local enemy = function()
             self.collision_time = 1.0
             self.collision_timer = 0.0
             if not gm_handler_inited then
-                gm_handler.diagonal = true
+                gm_handler.diagonal = false
                 gm_handler.init(self.map)
                 gm_handler_inited = true
             end
@@ -108,9 +110,7 @@ local enemy = function()
                 if self.is_collision_first then
                     bombed:play()
                     player.hp = player.hp - 10
-                    player.font:render_text(player.hp_font_texture,
-                                            "HP:" .. player.hp,
-                                            color(1, 1, 1, 1))
+                    player:render_text()
                     player.hp_drawer.scale = player.hp_font_texture:size()
                     self.is_collision_first = false
                 else
@@ -118,9 +118,7 @@ local enemy = function()
                     if self.collision_timer > self.collision_time then
                         bombed:play()
                         player.hp = player.hp - 10
-                        player.font:render_text(player.hp_font_texture,
-                                                "HP:" .. player.hp,
-                                                color(1, 1, 1, 1))
+                        player:render_text()
                         player.hp_drawer.scale = player.hp_font_texture:size()
                         self.collision_timer = 0.0
                     end
