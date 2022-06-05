@@ -84,7 +84,7 @@ function setup()
 end
 
 local function camera_update()
-    local offset = 5.0
+    local offset = 4.0
     if fps_mode then
         camera.position = vector3(player.drawer.position.x,
                                   player.drawer.position.y + 0.5,
@@ -99,11 +99,23 @@ local function camera_update()
                                             (math.pi / 180)) * 90,
                                 player.drawer.position.z)
     else
-        camera.position = vector3(player.drawer.position.x,
-                                  player.drawer.position.y - offset,
-                                  player.drawer.position.z + offset)
-        camera.target = vector3(player.drawer.position.x,
-                                player.drawer.position.y + offset,
+        camera.position = vector3(player.drawer.position.x +
+                                      math.sin(
+                                          player.drawer.rotation.z *
+                                              (math.pi / 180)) * offset,
+                                  player.drawer.position.y -
+                                      math.cos(
+                                          player.drawer.rotation.z *
+                                              (math.pi / 180)) * offset,
+                                  player.drawer.position.z + 2)
+        camera.target = vector3(player.drawer.position.x +
+                                    -math.sin(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
+                                player.drawer.position.y +
+                                    math.cos(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
                                 player.drawer.position.z)
 
     end

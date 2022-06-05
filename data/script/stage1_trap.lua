@@ -17,6 +17,7 @@ collision_space_division = 5 -- map_size_x / 10 * 2 + 1
 local map_draw3ds = {}
 local fire_god_drawer = {}
 local water_god_drawer = {}
+local grass_god_drawer = {}
 local fire_god_aabb = aabb()
 local water_god_aabb = aabb()
 local box = {}
@@ -26,8 +27,10 @@ local menu = {}
 -- assets
 local fire_god_model = model()
 local water_god_model = model()
+local grass_god_model = model()
 fire_god_model:load("fire_god.sim", "fire_god")
 water_god_model:load("water_god.sim", "water_god")
+grass_god_model:load("grass_god.sim", "grass_god")
 local tree = model()
 local music = music()
 tree:load("tree.sim", "tree")
@@ -41,8 +44,10 @@ door:load("door.sim", "door")
 
 local text_window_object = text_window()
 local god_same_column = false
-
+local skybox_tex = texture()
 function setup()
+    skybox_tex:fill_color(color(0.6, 0.6, 1, 1))
+    set_skybox_texture(skybox_tex)
     print("Arrow key: move")
     print("Z: shot")
     print("SEARCH AND DESTROY!")
@@ -53,7 +58,7 @@ function setup()
     info_font:load("SoukouMincho-Font/SoukouMincho.ttf", 48)
     info_font:render_text(info_texture,
                           "スペースキー と 移動 で 像 を 動かす",
-                          color(0.2, 0.2, 0.2, 1))
+                          color(1.0, 1.0, 1.0, 1))
     info_drawer = draw2d(info_texture)
     info_drawer.position = vector2(0, -300)
     info_drawer.scale = info_texture:size()
@@ -65,6 +70,12 @@ function setup()
     fire_god_drawer.vertex_name = "fire_god"
     fire_god_drawer.scale = vector3(0.5, 0.5, 0.5)
     fire_god_drawer.position = vector3(10 * 2, 10 * 2, 1)
+
+    grass_god_drawer = draw3d(tex)
+    grass_god_drawer.vertex_name = "grass_god"
+    grass_god_drawer.scale = vector3(0.5, 0.5, 0.5)
+    grass_god_drawer.position = vector3(6 * 2, 6 * 2, 1)
+    grass_god_drawer.rotation = vector3(0, 0, -90)
 
     water_god_drawer = draw3d(tex)
     water_god_drawer.vertex_name = "water_god"
@@ -104,6 +115,7 @@ function setup()
     end
     for i = 1, enemy_max_num do table.insert(enemies, enemy()) end
     player:setup(map, map_size_x, map_size_y - 1)
+    player.drawer.position = vector3(6 * 2, 3 * 2, 0)
     for i, v in ipairs(enemies) do v:setup(map, map_size_x, map_size_y) end
     for y = 1, map_size_y do
         map_draw3ds[y] = {}
@@ -161,7 +173,7 @@ function setup()
 end
 
 local function camera_update()
-    local offset = 5.0
+    local offset = 4.0
     if fps_mode then
         camera.position = vector3(player.drawer.position.x,
                                   player.drawer.position.y + 0.5,
@@ -176,11 +188,23 @@ local function camera_update()
                                             (math.pi / 180)) * 90,
                                 player.drawer.position.z)
     else
-        camera.position = vector3(player.drawer.position.x,
-                                  player.drawer.position.y - offset,
-                                  player.drawer.position.z + offset)
-        camera.target = vector3(player.drawer.position.x,
-                                player.drawer.position.y + offset,
+        camera.position = vector3(player.drawer.position.x +
+                                      math.sin(
+                                          player.drawer.rotation.z *
+                                              (math.pi / 180)) * offset,
+                                  player.drawer.position.y -
+                                      math.cos(
+                                          player.drawer.rotation.z *
+                                              (math.pi / 180)) * offset,
+                                  player.drawer.position.z + 2)
+        camera.target = vector3(player.drawer.position.x +
+                                    -math.sin(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
+                                player.drawer.position.y +
+                                    math.cos(
+                                        player.drawer.rotation.z *
+                                            (math.pi / 180)) * 90,
                                 player.drawer.position.z)
 
     end
@@ -193,6 +217,7 @@ local function draw()
     sprite:draw()
     iseki:draw()
     fire_god_drawer:draw()
+    grass_god_drawer:draw()
     water_god_drawer:draw()
     if god_same_column then
         -- body

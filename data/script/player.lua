@@ -94,6 +94,10 @@ local player = {
             end
 
         end
+        if keyboard:key_state(keyV) == buttonPRESSED then
+            self.drawer.rotation.z = self.drawer.rotation.z + 180
+        end
+
         self.aabb.max = self.drawer.position:add(
                             self.drawer.scale:mul(self.model.aabb.max))
         self.aabb.min = self.drawer.position:add(
@@ -142,39 +146,40 @@ local player = {
             v:update()
             if v.is_stop then table.remove(self.efks, i) end
         end
-        if fps_mode then
-            scale = self.drawer.scale.x * 2.0
-            before_pos = vector3(self.drawer.position.x, self.drawer.position.y,
-                                 self.drawer.position.z)
-            if input_vector.y ~= 0 then
-                local rot = get_forward_z(self.drawer.rotation)
-                self.drawer.position = self.drawer.position:add(vector3(
+        -- if fps_mode then
+        scale = self.drawer.scale.x * 2.0
+        before_pos = vector3(self.drawer.position.x, self.drawer.position.y,
+                             self.drawer.position.z)
+        if input_vector.y ~= 0 then
+            local rot = get_forward_z(self.drawer.rotation)
+            self.drawer.position = self.drawer.position:add(vector3(
+                                                                input_vector.y *
+                                                                    rot.x *
+                                                                    scale *
+                                                                    speed *
+                                                                    delta_time,
+                                                                0, 0))
+            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
+                self.drawer.position = before_pos
+            end
+            before_pos = self.drawer.position:copy()
+            self.drawer.position = self.drawer.position:add(vector3(0,
                                                                     input_vector.y *
-                                                                        rot.x *
+                                                                        rot.y *
                                                                         scale *
                                                                         speed *
                                                                         delta_time,
-                                                                    0, 0))
-                if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
-                    self.drawer.position = before_pos
-                end
-                before_pos = self.drawer.position:copy()
-                self.drawer.position = self.drawer.position:add(vector3(0,
-                                                                        input_vector.y *
-                                                                            rot.y *
-                                                                            scale *
-                                                                            speed *
-                                                                            delta_time,
-                                                                        0))
-                if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
-                    self.drawer.position = before_pos
-                end
+                                                                    0))
+            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
+                self.drawer.position = before_pos
             end
-            if input_vector.x ~= 0 or input_vector.y ~= 0 then
-                self.drawer.rotation.z =
-                    self.drawer.rotation.z + math.deg(math.sin(-input_vector.x)) *
-                        delta_time * 2
-            end
+        end
+        if input_vector.x ~= 0 or input_vector.y ~= 0 then
+            self.drawer.rotation.z = self.drawer.rotation.z +
+                                         math.deg(math.sin(-input_vector.x)) *
+                                         delta_time * 2
+        end
+        --[[
         else
             if input_vector.x == 0 and input_vector.y == 0 then
                 return 0
@@ -263,7 +268,7 @@ local player = {
                                                                  input_vector.y) *
                                                    (180.0 / math.pi))
             end
-        end
+        end--]]
         local r = self.drawer.rotation
         local rot = get_forward_z(r)
         self.gun_drawer.position = vector3(self.drawer.position.x + rot.x,

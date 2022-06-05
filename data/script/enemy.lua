@@ -111,7 +111,7 @@ local enemy = function()
             if self.aabb:intersects_aabb(player.aabb) then
                 if self.is_collision_first then
                     bombed:play()
-                    player.hp = player.hp - 10
+                    player.hp = player.hp - 1
                     player:render_text()
                     self.is_collision_first = false
                 else

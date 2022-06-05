@@ -27,7 +27,7 @@ function update()
     hello_drawer:draw()
     press_drawer:draw()
     if keyboard:key_state(keySPACE) == buttonPRESSED then
-        change_scene("stage1")
+        change_scene("prologue")
     end
 end
 
