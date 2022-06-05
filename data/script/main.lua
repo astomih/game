@@ -5,9 +5,6 @@ local press_font = {}
 local hello_drawer = {}
 local press_drawer = {}
 
-local effect = require "effect"
-
-local efk = effect()
 function setup()
     hello_texture = texture()
     hello_drawer = draw2d(hello_texture)
@@ -24,16 +21,13 @@ function setup()
                            color(1, 1, 1, 1))
     press_drawer.scale = press_texture:size()
     press_drawer.position = vector2(0, -hello_drawer.scale.y)
-    efk:setup()
-    efk:play()
 end
 
 function update()
     hello_drawer:draw()
     press_drawer:draw()
-    efk:update()
     if keyboard:key_state(keySPACE) == buttonPRESSED then
-        change_scene("prologue")
+        change_scene("stage1")
     end
 end
 

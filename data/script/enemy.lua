@@ -2,6 +2,7 @@ local is_collision = require "is_collision"
 local BFS = require "Algorithm-Implementations/bfs"
 local gm_handler = require "Algorithm-Implementations/handlers/gridmap_handler"
 local gm_handler_inited = false
+local bullet_type = require "bullet_type"
 gm_handler_inited = false
 
 local function same(t, p, comp)
@@ -31,6 +32,7 @@ local enemy = function()
         collision_timer = {},
         map = {},
         bfs = {},
+        type = bullet_type.grass,
         get_forward_z = function(drawer)
             return vector2(-math.sin(math.rad(drawer.rotation.z)),
                            math.cos(math.rad(-drawer.rotation.z)))
@@ -111,7 +113,6 @@ local enemy = function()
                     bombed:play()
                     player.hp = player.hp - 10
                     player:render_text()
-                    player.hp_drawer.scale = player.hp_font_texture:size()
                     self.is_collision_first = false
                 else
                     self.collision_timer = self.collision_timer + delta_time
@@ -119,7 +120,6 @@ local enemy = function()
                         bombed:play()
                         player.hp = player.hp - 10
                         player:render_text()
-                        player.hp_drawer.scale = player.hp_font_texture:size()
                         self.collision_timer = 0.0
                     end
                 end

@@ -4,8 +4,7 @@ function setup()
     text_window_object:setup()
 
     text_window_object.texts = {
-        "俺には唯一の親友が居た", "aaaa",
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        "aaa", "aaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
 end
 

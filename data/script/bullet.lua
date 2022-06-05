@@ -1,27 +1,35 @@
 local m = model()
 local sound = sound()
 sound:load("shot.wav")
+local effect = require "effect"
+local bullet_type = require "bullet_type"
 
 m:load("bullet.sim", "bullet")
 local function bullet(map_draw3ds)
     local object = {
         speed = 20,
         drawer = {},
-        life_time = 1.5,
+        life_time = 0.5,
         current_time = 0,
         aabb = {},
+        efk = {},
+        type = bullet_type.fire,
+        texture = {},
         setup = function(self, owner)
             self.aabb = aabb()
-            self.drawer = draw3d(tex)
+            self.texture = texture()
+            self.drawer = draw3d(self.texture)
             self.drawer.vertex_name = "bullet"
-            self.drawer.position = vector3(owner.drawer.position.x,
-                                           owner.drawer.position.y + 0.5,
-                                           owner.drawer.position.z)
-            self.drawer.rotation = owner.drawer.rotation
-            self.drawer.scale = vector3(0.5, 0.5, 0.5)
+            self.drawer.position = vector3(owner.position.x, owner.position.y,
+                                           1.3)
+            self.drawer.rotation = owner.rotation
+            self.drawer.scale = vector3(0.2, 0.2, 0.2)
             sound:play()
+            self.efk = effect()
+            self.efk:setup()
         end,
         update = function(self)
+            self.efk:update()
             self.aabb.max = self.drawer.position:add(
                                 self.drawer.scale:mul(m.aabb.max))
             self.aabb.min = self.drawer.position:add(
@@ -35,7 +43,6 @@ local function bullet(map_draw3ds)
                                          self.speed *
                                          math.cos(
                                              math.rad(-self.drawer.rotation.z))
-
             self.drawer:draw()
         end
     }

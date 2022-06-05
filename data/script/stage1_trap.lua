@@ -31,6 +31,9 @@ water_god_model:load("water_god.sim", "water_god")
 local tree = model()
 local music = music()
 tree:load("tree.sim", "tree")
+local info_font = {}
+local info_texture = {}
+local info_drawer = {}
 
 local door = model()
 local door_drawer = {}
@@ -45,6 +48,15 @@ function setup()
     print("SEARCH AND DESTROY!")
     music:load("PSYCHO.ogg")
     music:play()
+    info_texture = texture()
+    info_font = font()
+    info_font:load("SoukouMincho-Font/SoukouMincho.ttf", 48)
+    info_font:render_text(info_texture,
+                          "スペースキー と 移動 で 像 を 動かす",
+                          color(0.2, 0.2, 0.2, 1))
+    info_drawer = draw2d(info_texture)
+    info_drawer.position = vector2(0, -300)
+    info_drawer.scale = info_texture:size()
     tex = texture()
     brown = texture()
     tex:fill_color(color(1, 1, 1, 1))
@@ -52,12 +64,12 @@ function setup()
     fire_god_drawer = draw3d(tex)
     fire_god_drawer.vertex_name = "fire_god"
     fire_god_drawer.scale = vector3(0.5, 0.5, 0.5)
-    fire_god_drawer.position = vector3(3 * 2, 3 * 2, 1)
+    fire_god_drawer.position = vector3(10 * 2, 10 * 2, 1)
 
     water_god_drawer = draw3d(tex)
     water_god_drawer.vertex_name = "water_god"
     water_god_drawer.scale = vector3(0.5, 0.5, 0.5)
-    water_god_drawer.position = vector3(10 * 2, 10 * 2, 1)
+    water_god_drawer.position = vector3(3 * 2, 3 * 2, 1)
     water_god_drawer.rotation = vector3(0, 0, 180)
     map = {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -187,6 +199,7 @@ local function draw()
         text_window_object:draw()
     end
     door_drawer:draw()
+    info_drawer:draw()
 end
 function update()
     if god_same_column then
@@ -256,7 +269,8 @@ function update()
     end
 
     if math.floor(fire_god_drawer.position.y) ==
-        math.floor(water_god_drawer.position.y) then god_same_column = true end
+        math.floor(water_god_drawer.position.y) and water_god_drawer.position.x >
+        fire_god_drawer.position.x then god_same_column = true end
     camera_update()
     draw()
 end

@@ -19,6 +19,8 @@ local menu = {}
 -- assets
 local tree = model()
 local music = music()
+local iseki_wall = texture()
+iseki_wall:load("iseki_wall.png")
 tree:load("tree.sim", "tree")
 
 function setup()
@@ -33,9 +35,9 @@ function setup()
     brown:fill_color(color(0.843, 0.596, 0.043, 1))
     generator = dungeon_generator()
     generator:generate(map, map_size_x, map_size_y)
-    box = draw3d_instanced(tex)
+    box = draw3d_instanced(iseki_wall)
     box.vertex_name = "BOX"
-    sprite = draw3d_instanced(brown)
+    sprite = draw3d_instanced(iseki_wall)
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
         for j = 1, collision_space_division + 2 do
@@ -51,6 +53,9 @@ function setup()
             map_draw3ds[y][x] = world()
             map_draw3ds[y][x].position.x = x * 2
             map_draw3ds[y][x].position.y = y * 2
+            sprite:add(map_draw3ds[y][x].position, map_draw3ds[y][x].rotation,
+                       map_draw3ds[y][x].scale)
+            map_draw3ds[y][x].position.z = 3.5
             sprite:add(map_draw3ds[y][x].position, map_draw3ds[y][x].rotation,
                        map_draw3ds[y][x].scale)
             if map[y][x] == 1 then
@@ -115,8 +120,24 @@ function update()
     for i, v in ipairs(player.bullets) do
         for j, w in ipairs(enemies) do
             if v.aabb:intersects_aabb(w.aabb) then
+                local efk = effect()
+                efk:setup()
+                for k = 1, efk.max_particles do
+                    efk.worlds[k].position = w.drawer.position:copy()
+                end
+                efk:play()
+                table.insert(player.efks, efk)
+
                 table.remove(player.bullets, i)
-                w.hp = w.hp - 10
+                if v.type == bullet_type.fire then
+                    w.hp = w.hp - 12
+                else
+                    if v.type == bullet_type.water then
+                        w.hp = w.hp - 8
+                    else
+                        w.hp = w.hp - 10
+                    end
+                end
                 if w.hp < 0 then table.remove(enemies, j) end
                 if table.maxn(enemies) <= 0 then
                     change_scene("win_scene")

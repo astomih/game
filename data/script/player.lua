@@ -4,6 +4,8 @@ local is_collision = require "is_collision"
 local input_vector = {}
 local speed = 2.0
 local function xor(a, b) return (a and not b) or (not a and b) end
+local effect = require "effect"
+local bullet_type = require "bullet_type"
 
 local r1 = {}
 local r2 = {}
@@ -13,7 +15,6 @@ local function decide_pos(map, map_size_x, map_size_y)
     return map[r2][r1] == 1
 end
 local function get_forward_z(rotation)
-
     return vector2(-math.sin(math.rad(rotation.z)),
                    math.cos(math.rad(-rotation.z)))
 end
@@ -21,15 +22,34 @@ end
 local player = {
     drawer = {},
     model = {},
+    bullet_type_tex = {},
+    bullet_type_drawer = {},
+    bullet_type = bullet_type.fire,
     bullets = {},
     hp = {},
     hp_drawer = {},
+    hp_drawer2 = {},
     hp_font = {},
     hp_font_texture = {},
+    hp_font_texture2 = {},
     aabb = {},
     bullet_time = {},
     bullet_timer = {},
+    efks = {},
+    gun_model = {},
+    gun_drawer = {},
     setup = function(self, map, map_size_x, map_size_y)
+        self.gun_model = model()
+        self.gun_model:load("gun.sim", "gun")
+        self.gun_drawer = draw3d(tex)
+        self.gun_drawer.vertex_name = "gun"
+
+        self.bullet_type_tex = texture()
+        self.bullet_type_tex:load("fire.png")
+        self.bullet_type_drawer = draw2d(self.bullet_type_tex)
+        self.bullet_type_drawer.scale = vector2(256, 256)
+        self.bullet_type_drawer.position.x = 512
+        self.bullet_type_drawer.position.y = 128
         self.model = model()
         self.model:load("untitled.sim", "player")
         self.drawer = draw3d(tex)
@@ -40,19 +60,40 @@ local player = {
         self.hp = 100
 
         self.hp_font_texture = texture()
+        self.hp_font_texture2 = texture()
+
         self.hp_drawer = draw2d(self.hp_font_texture)
-        self.font = font()
-        self.font:load("SoukouMincho-Font/SoukouMincho.ttf", 64)
+        self.hp_drawer2 = draw2d(self.hp_font_texture2)
+        self.hp_font_texture2:fill_color(color(0.2, 0.2, 0.2, 0.2))
         self.render_text(self)
-        self.hp_drawer.scale = self.hp_font_texture:size()
         r1 = 0
         r2 = 0
         while decide_pos(map, map_size_x, map_size_y) == true do end
         self.drawer.position = vector3(r1 * 2, r2 * 2, 0)
-        self.hp_drawer.position.x = -1280 / 2 + self.hp_drawer.scale.x / 2
+        self.hp_drawer.position.x = 0
         self.hp_drawer.position.y = 300
+        self.hp_drawer2.position.x = 0
+        self.hp_drawer2.position.y = 300
+        self.hp_drawer2.scale = vector2(self.hp * 10.0, 50)
     end,
+    horizontal = math.pi,
+    vertical = 0.0,
     update = function(self, map, map_draw3ds, map_size_x, map_size_y)
+
+        if keyboard:key_state(keyC) == buttonPRESSED then
+            self.bullet_type = self.bullet_type + 1
+            if self.bullet_type > 2 then self.bullet_type = 0 end
+            if self.bullet_type == bullet_type.fire then
+                self.bullet_type_tex:load("fire.png")
+            end
+            if self.bullet_type == bullet_type.water then
+                self.bullet_type_tex:load("water.png")
+            end
+            if self.bullet_type == bullet_type.grass then
+                self.bullet_type_tex:load("grass.png")
+            end
+
+        end
         self.aabb.max = self.drawer.position:add(
                             self.drawer.scale:mul(self.model.aabb.max))
         self.aabb.min = self.drawer.position:add(
@@ -69,15 +110,37 @@ local player = {
         self.bullet_timer = self.bullet_timer + delta_time
         if keyboard:is_key_down(keyZ) and self.bullet_timer > self.bullet_time then
             local b = bullet(map_draw3ds)
-            b:setup(self)
+            b:setup(self.gun_drawer)
+            b.drawer.rotation.z = b.drawer.rotation.z + 90
+            b.type = self.bullet_type
+            if b.type == bullet_type.fire then
+                b.texture:fill_color(color(1, 0.5, 0.5, 1))
+            else
+                if b.type == bullet_type.water then
+                    b.texture:fill_color(color(0.5, 0.5, 1, 1))
+                else
+                    b.texture:fill_color(color(0.5, 1, 0.5, 1))
+                end
+            end
             table.insert(self.bullets, b)
             self.bullet_timer = 0.0
         end
         for i, v in ipairs(self.bullets) do
             v:update()
             if v.current_time > v.life_time then
+                local efk = effect()
+                efk:setup()
+                for j = 1, efk.max_particles do
+                    efk.worlds[j].position = v.drawer.position:copy()
+                end
+                efk:play()
+                table.insert(self.efks, efk)
                 table.remove(self.bullets, i)
             end
+        end
+        for i, v in ipairs(self.efks) do
+            v:update()
+            if v.is_stop then table.remove(self.efks, i) end
         end
         if fps_mode then
             scale = self.drawer.scale.x * 2.0
@@ -201,14 +264,30 @@ local player = {
                                                    (180.0 / math.pi))
             end
         end
+        local r = self.drawer.rotation
+        local rot = get_forward_z(r)
+        self.gun_drawer.position = vector3(self.drawer.position.x + rot.x,
+                                           self.drawer.position.y + 0.5 + rot.y,
+                                           0)
+        self.gun_drawer.scale = vector3(0.3, 0.3, 0.3)
+        self.gun_drawer.rotation = self.drawer.rotation:copy()
+        self.gun_drawer.rotation.z = self.gun_drawer.rotation.z - 90
+        self.gun_drawer.position.z = 1.5
     end,
     draw = function(self)
         if not fps_mode then self.drawer:draw() end
         self.hp_drawer:draw()
+        self.hp_drawer2:draw()
+        self.bullet_type_drawer:draw()
+        self.gun_drawer:draw()
     end,
     render_text = function(self)
-        self.font:render_text(self.hp_font_texture, "残体力:" .. self.hp,
-                              color(0.6, 1, 0.6, 1))
+        if self.hp < 20 then
+            self.hp_font_texture:fill_color(color(1, 0.6, 0.6, 0.8))
+        else
+            self.hp_font_texture:fill_color(color(0.6, 1, 0.6, 0.8))
+        end
+        self.hp_drawer.scale = vector2(self.hp * 10, 50)
     end
 }
 
