@@ -36,8 +36,7 @@ void main()
 	{
 
 		vec3 Diffuse = mDiffuseColor * NdotL;
-		vec3 Specular = mSpecColor * pow(max(0.0, dot(R, V)), uSpecPower);
-		Phong += Diffuse + Specular;
+		Phong += Diffuse;
 	}
 
 	vec4 color = vec4(Phong, 1.0)*outRgba*texture(diffuseMap,outUV);

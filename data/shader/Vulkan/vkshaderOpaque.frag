@@ -4,7 +4,7 @@ precision mediump float;
 layout(location=0) in vec2 inUV;
 layout(location=1) in vec4 inColor;
 layout(location=0) out vec4 outColor;
-layout(binding=1)  uniform sampler2D diffuseMap;
+layout(set=0,binding=1)  uniform sampler2D diffuseMap;
 // Normal (in world space)
 layout(location=3) in vec3 fragNormal;
 // Position (in world space)
@@ -38,8 +38,7 @@ void main()
 	if (NdotL > 0)
 	{
 		vec3 Diffuse = mDiffuseColor * NdotL;
-		vec3 Specular = mSpecColor * pow(max(0.0, dot(R, V)), uSpecPower);
-		Phong += Diffuse + Specular;
+		Phong += Diffuse;
 	}
 	vec4 color = vec4(Phong,1.0) * inColor * texture(diffuseMap,inUV);
 	if( color.a < 0.5 )

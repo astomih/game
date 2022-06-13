@@ -75,6 +75,7 @@ local player = {
         self.hp_drawer2.position.x = 0
         self.hp_drawer2.position.y = 300
         self.hp_drawer2.scale = vector2(self.hp * 10.0, 50)
+        mouse:hide_cursor(true)
     end,
     horizontal = math.pi,
     vertical = 0.0,
@@ -105,14 +106,15 @@ local player = {
         if self.hp <= 0 then change_scene("gameover") end
         input_vector = calc_input_vector()
         if keyboard:is_key_down(keyLSHIFT) then
-            speed = 4.0
+            speed = 8.0
         else
-            speed = 2.0
+            speed = 4.0
         end
 
         -- bullet 
         self.bullet_timer = self.bullet_timer + delta_time
-        if keyboard:is_key_down(keyZ) and self.bullet_timer > self.bullet_time then
+        if mouse:button_state(mouseLEFT) == buttonHELD and self.bullet_timer >
+            self.bullet_time then
             local b = bullet(map_draw3ds)
             b:setup(self.gun_drawer)
             b.drawer.rotation.z = b.drawer.rotation.z + 90
@@ -146,6 +148,13 @@ local player = {
             v:update()
             if v.is_stop then table.remove(self.efks, i) end
         end
+        local mpos = mouse:position()
+        mouse:set_position(vector2(1280 / 2, 720 / 2))
+        mpos.x = 640 - mpos.x
+        mpos.y = 360 - mpos.y
+        local sikiiti = 8
+        self.drawer.rotation.z =
+            self.drawer.rotation.z + (mpos.x) * delta_time * sikiiti
         -- if fps_mode then
         scale = self.drawer.scale.x * 2.0
         before_pos = vector3(self.drawer.position.x, self.drawer.position.y,
@@ -174,10 +183,28 @@ local player = {
                 self.drawer.position = before_pos
             end
         end
-        if input_vector.x ~= 0 or input_vector.y ~= 0 then
-            self.drawer.rotation.z = self.drawer.rotation.z +
-                                         math.deg(math.sin(-input_vector.x)) *
-                                         delta_time * 2
+        if input_vector.x ~= 0 then
+            local r = self.drawer.rotation:copy()
+            if input_vector.x == 1 then r.z = r.z - 90 end
+            if input_vector.x == -1 then r.z = r.z + 90 end
+            local rot = get_forward_z(r)
+            self.drawer.position = self.drawer.position:add(vector3(rot.x *
+                                                                        scale *
+                                                                        speed *
+                                                                        delta_time,
+                                                                    0, 0))
+            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
+                self.drawer.position = before_pos
+            end
+            before_pos = self.drawer.position:copy()
+            self.drawer.position = self.drawer.position:add(vector3(0, rot.y *
+                                                                        scale *
+                                                                        speed *
+                                                                        delta_time,
+                                                                    0))
+            if is_collision(self, map, map_draw3ds, map_size_x, map_size_y) then
+                self.drawer.position = before_pos
+            end
         end
         --[[
         else
@@ -269,6 +296,8 @@ local player = {
                                                    (180.0 / math.pi))
             end
         end--]]
+
+        -- gun
         local r = self.drawer.rotation
         local rot = get_forward_z(r)
         self.gun_drawer.position = vector3(self.drawer.position.x + rot.x,

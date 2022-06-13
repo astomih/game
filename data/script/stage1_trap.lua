@@ -30,7 +30,7 @@ local water_god_model = model()
 local grass_god_model = model()
 fire_god_model:load("fire_god.sim", "fire_god")
 water_god_model:load("water_god.sim", "water_god")
-grass_god_model:load("grass_god.sim", "grass_god")
+grass_god_model:load("zombie.sim", "grass_god")
 local tree = model()
 local music = music()
 tree:load("tree.sim", "tree")
@@ -45,8 +45,13 @@ door:load("door.sim", "door")
 local text_window_object = text_window()
 local god_same_column = false
 local skybox_tex = texture()
+local menu = require("menu")
+local menu_object = menu()
+local shadow_tex = require("shadow")
+local shadow = shadow_tex()
 function setup()
-    skybox_tex:fill_color(color(0.6, 0.6, 1, 1))
+    menu_object:setup()
+    skybox_tex:fill_color(color(0.5, 0.5, 1, 1))
     set_skybox_texture(skybox_tex)
     print("Arrow key: move")
     print("Z: shot")
@@ -170,6 +175,9 @@ function setup()
     camera.up = vector3(0, 0, 1)
     text_window_object:setup()
     text_window_object.texts = {"扉が開いたようだ。"}
+
+    shadow.owner = player.drawer
+    shadow:setup()
 end
 
 local function camera_update()
@@ -225,78 +233,89 @@ local function draw()
     end
     door_drawer:draw()
     info_drawer:draw()
+    menu_object:draw()
+    shadow:draw()
 end
 function update()
-    if god_same_column then
-        text_window_object:update()
-        door_drawer.rotation.z = 180
-        door_drawer.position.x = 6 * 2 + 1
-        if text_window_object.is_draw_all_texts then
-            change_scene("stage1")
-        end
-    end
-    fire_god_aabb.max = fire_god_drawer.position:add(
-                            fire_god_drawer.scale:mul(fire_god_model.aabb.max))
-    fire_god_aabb.min = fire_god_drawer.position:add(
-                            fire_god_drawer.scale:mul(fire_god_model.aabb.min))
-    water_god_aabb.max = water_god_drawer.position:add(
-                             water_god_drawer.scale:mul(
-                                 water_god_model.aabb.max))
-    water_god_aabb.min = water_god_drawer.position:add(
-                             water_god_drawer.scale:mul(
-                                 water_god_model.aabb.min))
-
-    if keyboard:key_state(keyX) == buttonPRESSED then fps_mode = not fps_mode end
-    for i, v in ipairs(player.bullets) do
-        for j, w in ipairs(enemies) do
-            if v.aabb:intersects_aabb(w.aabb) then
-                table.remove(player.bullets, i)
-                w.hp = w.hp - 10
-                if w.hp < 0 then table.remove(enemies, j) end
-                if table.maxn(enemies) <= 0 then
-                    change_scene("win_scene")
-                end
+    menu_object:update()
+    shadow:update()
+    if menu_object.hide then
+        if god_same_column then
+            text_window_object:update()
+            door_drawer.rotation.z = 180
+            door_drawer.position.x = 6 * 2 + 1
+            if text_window_object.is_draw_all_texts then
+                change_scene("stage1")
             end
         end
-        if map[math.floor(v.drawer.position.y / 2 + 0.5)][math.floor(v.drawer
-                                                                         .position
-                                                                         .x / 2 +
-                                                                         0.5)] ==
-            1 then table.remove(player.bullets, i) end
-    end
-    local before_pos = player.drawer.position:copy()
-    player:update(map, map_draw3ds, map_size_x, map_size_y)
-    for i, v in ipairs(enemies) do
-        v:update(player, map, map_draw3ds, map_size_x, map_size_y)
-        v:player_collision(player)
-    end
-    if fire_god_aabb:intersects_aabb(player.aabb) then
-        player.drawer.position = before_pos
-        if keyboard:is_key_down(keySPACE) then
-            local v = get_forward(player.drawer)
-            fire_god_drawer.position = vector3(
-                                           fire_god_drawer.position.x + v.x *
-                                               delta_time * 2,
-                                           fire_god_drawer.position.y + v.y *
-                                               delta_time * 2, 1)
-        end
-    end
-    if water_god_aabb:intersects_aabb(player.aabb) then
-        player.drawer.position = before_pos
-        if keyboard:is_key_down(keySPACE) then
-            local v = get_forward(player.drawer)
-            water_god_drawer.position = vector3(
-                                            water_god_drawer.position.x + v.x *
-                                                delta_time * 2,
-                                            water_god_drawer.position.y + v.y *
-                                                delta_time * 2, 1)
-        end
-    end
+        fire_god_aabb.max = fire_god_drawer.position:add(
+                                fire_god_drawer.scale:mul(fire_god_model.aabb
+                                                              .max))
+        fire_god_aabb.min = fire_god_drawer.position:add(
+                                fire_god_drawer.scale:mul(fire_god_model.aabb
+                                                              .min))
+        water_god_aabb.max = water_god_drawer.position:add(
+                                 water_god_drawer.scale:mul(
+                                     water_god_model.aabb.max))
+        water_god_aabb.min = water_god_drawer.position:add(
+                                 water_god_drawer.scale:mul(
+                                     water_god_model.aabb.min))
 
-    if math.floor(fire_god_drawer.position.y) ==
-        math.floor(water_god_drawer.position.y) and water_god_drawer.position.x >
-        fire_god_drawer.position.x then god_same_column = true end
-    camera_update()
+        if keyboard:key_state(keyX) == buttonPRESSED then
+            fps_mode = not fps_mode
+        end
+        for i, v in ipairs(player.bullets) do
+            for j, w in ipairs(enemies) do
+                if v.aabb:intersects_aabb(w.aabb) then
+                    table.remove(player.bullets, i)
+                    w.hp = w.hp - 10
+                    if w.hp < 0 then table.remove(enemies, j) end
+                    if table.maxn(enemies) <= 0 then
+                        change_scene("win_scene")
+                    end
+                end
+            end
+            if map[math.floor(v.drawer.position.y / 2 + 0.5)][math.floor(
+                v.drawer.position.x / 2 + 0.5)] == 1 then
+                table.remove(player.bullets, i)
+            end
+        end
+        local before_pos = player.drawer.position:copy()
+        player:update(map, map_draw3ds, map_size_x, map_size_y)
+        for i, v in ipairs(enemies) do
+            v:update(player, map, map_draw3ds, map_size_x, map_size_y)
+            v:player_collision(player)
+        end
+        if fire_god_aabb:intersects_aabb(player.aabb) then
+            player.drawer.position = before_pos
+            if keyboard:is_key_down(keySPACE) then
+                local v = get_forward(player.drawer)
+                fire_god_drawer.position = vector3(
+                                               fire_god_drawer.position.x + v.x *
+                                                   delta_time * 2,
+                                               fire_god_drawer.position.y + v.y *
+                                                   delta_time * 2, 1)
+            end
+        end
+        if water_god_aabb:intersects_aabb(player.aabb) then
+            player.drawer.position = before_pos
+            if keyboard:is_key_down(keySPACE) then
+                local v = get_forward(player.drawer)
+                water_god_drawer.position = vector3(
+                                                water_god_drawer.position.x +
+                                                    v.x * delta_time * 2,
+                                                water_god_drawer.position.y +
+                                                    v.y * delta_time * 2, 1)
+            end
+        end
+
+        if math.floor(fire_god_drawer.position.y) ==
+            math.floor(water_god_drawer.position.y) and
+            water_god_drawer.position.x > fire_god_drawer.position.x then
+            god_same_column = true
+        end
+        camera_update()
+    end
     draw()
 end
 -------------------------------------------------------------------------------------
