@@ -15,7 +15,7 @@ local function effect()
         gravity_multiplier = 0.0,
         inherit_velocity = 0.0,
         play_on_awake = false,
-        max_particles = 100,
+        max_particles = 10,
 
         drawer = {},
         texture = {},

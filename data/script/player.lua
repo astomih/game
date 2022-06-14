@@ -19,6 +19,8 @@ local function get_forward_z(rotation)
                    math.cos(math.rad(-rotation.z)))
 end
 
+local shadow = require("shadow")
+
 local player = {
     drawer = {},
     model = {},
@@ -38,6 +40,7 @@ local player = {
     efks = {},
     gun_model = {},
     gun_drawer = {},
+    shadow = {},
     setup = function(self, map, map_size_x, map_size_y)
         self.gun_model = model()
         self.gun_model:load("gun.sim", "gun")
@@ -76,6 +79,9 @@ local player = {
         self.hp_drawer2.position.y = 300
         self.hp_drawer2.scale = vector2(self.hp * 10.0, 50)
         mouse:hide_cursor(true)
+        self.shadow = shadow()
+        self.shadow.owner = self.drawer
+        self.shadow:setup()
     end,
     horizontal = math.pi,
     vertical = 0.0,
@@ -307,6 +313,7 @@ local player = {
         self.gun_drawer.rotation = self.drawer.rotation:copy()
         self.gun_drawer.rotation.z = self.gun_drawer.rotation.z - 90
         self.gun_drawer.position.z = 1.5
+        self.shadow:update()
     end,
     draw = function(self)
         if not fps_mode then self.drawer:draw() end
@@ -314,6 +321,7 @@ local player = {
         self.hp_drawer2:draw()
         self.bullet_type_drawer:draw()
         self.gun_drawer:draw()
+        self.shadow:draw()
     end,
     render_text = function(self)
         if self.hp < 20 then

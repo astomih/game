@@ -47,8 +47,6 @@ local god_same_column = false
 local skybox_tex = texture()
 local menu = require("menu")
 local menu_object = menu()
-local shadow_tex = require("shadow")
-local shadow = shadow_tex()
 function setup()
     menu_object:setup()
     skybox_tex:fill_color(color(0.5, 0.5, 1, 1))
@@ -176,8 +174,6 @@ function setup()
     text_window_object:setup()
     text_window_object.texts = {"扉が開いたようだ。"}
 
-    shadow.owner = player.drawer
-    shadow:setup()
 end
 
 local function camera_update()
@@ -234,11 +230,9 @@ local function draw()
     door_drawer:draw()
     info_drawer:draw()
     menu_object:draw()
-    shadow:draw()
 end
 function update()
     menu_object:update()
-    shadow:update()
     if menu_object.hide then
         if god_same_column then
             text_window_object:update()
