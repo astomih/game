@@ -185,11 +185,11 @@ local function camera_update()
         camera.target = vector3(player.drawer.position.x +
                                     -math.sin(
                                         player.drawer.rotation.z *
-                                            (math.pi / 180)) * 90,
+                                            (math.pi / 180.0)) * 90,
                                 player.drawer.position.y +
                                     math.cos(
                                         player.drawer.rotation.z *
-                                            (math.pi / 180)) * 90,
+                                            (math.pi / 180.0)) * 90,
                                 player.drawer.position.z)
     else
         camera.position = vector3(player.drawer.position.x +
@@ -232,6 +232,10 @@ local function draw()
     menu_object:draw()
 end
 function update()
+    light_eye(vector3(0, 1, -2))
+    light_at(vector3(0, 0, 0))
+    light_width(200)
+    light_height(200)
     menu_object:update()
     if menu_object.hide then
         if god_same_column then

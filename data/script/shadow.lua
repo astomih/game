@@ -15,7 +15,8 @@ local function shadow()
             self.drawer.position = self.owner.position
             self.drawer.position.z = 0.1
         end,
-        draw = function(self) self.drawer:draw() end
+        draw = function(self) -- self.drawer:draw() 
+        end
     }
     return object
 end

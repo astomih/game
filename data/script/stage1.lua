@@ -38,6 +38,7 @@ function setup()
     box = draw3d_instanced(iseki_wall)
     box.vertex_name = "BOX"
     sprite = draw3d_instanced(iseki_wall)
+    sprite.is_draw_depth = false
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
         for j = 1, collision_space_division + 2 do
@@ -128,6 +129,10 @@ local function draw()
     sprite:draw()
 end
 function update()
+    light_eye(vector3(0, 1, -5))
+    light_at(vector3(0, 0, 0))
+    light_width(200)
+    light_height(200)
     if keyboard:key_state(keyX) == buttonPRESSED then fps_mode = not fps_mode end
     for i, v in ipairs(player.bullets) do
         for j, w in ipairs(enemies) do

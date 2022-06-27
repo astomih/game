@@ -40,7 +40,7 @@ local enemy = function()
         setup = function(self, _map, map_size_x, map_size_y)
             gm_handler_inited = false
             self.model = model()
-            self.model:load("zombie.sim", "enemy")
+            self.model:load("spider.sim", "enemy")
             self.drawer = draw3d(tex)
             self.drawer.vertex_name = "enemy"
             self.aabb = aabb()

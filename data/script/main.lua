@@ -35,7 +35,7 @@ function update()
     if menu_object.hide then
         if keyboard:key_state(keySPACE) == buttonPRESSED or
             mouse:button_state(mouseLEFT) == buttonPRESSED then
-            change_scene("prologue")
+            change_scene("stage1")
         end
     end
 end

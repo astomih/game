@@ -17,6 +17,8 @@ layout(set=0,binding=0) uniform Matrices
   mat4 world;
   mat4 view;
   mat4 proj;
+  mat4 light_view;
+  mat4 light_proj;
 };
 
 out gl_PerVertex
@@ -28,7 +30,7 @@ out gl_PerVertex
 layout(location=3) out vec3 fragNormal;
 // Position (in world space)
 layout(location=4) out vec3 fragWorldPos;
-
+layout(location=5) out vec4 ShadowCoord;
 void main()
 {
   mat4 inworldmat;
@@ -40,6 +42,7 @@ void main()
   vec4 worldpos = vec4(inPos,1.0) * inworldmat;
 	fragWorldPos = worldpos.xyz;
   gl_Position = proj * view * inworldmat * vec4(inPos,1.0);
+  ShadowCoord = light_proj * light_view * inworldmat*vec4(inPos,1.0);
 	fragNormal = (inworldmat*vec4(inNormal, 0.0f)).xyz;
   outUV = inUV;
   outColor = inColor;

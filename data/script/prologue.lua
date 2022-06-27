@@ -2,12 +2,23 @@ local text_window = require "text_window"
 local text_window_object = text_window()
 local menu = require("menu")
 local menu_object = menu()
+local casino = texture()
+local drawer = draw2d(casino)
+casino:load("casino.png")
+drawer.scale = casino:size()
 function setup()
     menu_object:setup()
     text_window_object:setup()
 
     text_window_object.texts = {
-        "aaa", "aaaa", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        "ディーラー「21、ブラックジャックだ。」",
+        "ぐわあああああああああああああ！！！！",
+        "また負けてしまった...",
+        "謎の男「おい、お前ジョンズ博士の息子だろ？」",
+        "なんだお前！",
+        "謎の男「今は関係無い。とにかく、この遺跡に行って言う通りに動け。",
+        "ぐわああああああああああああああ！！！！"
+
     }
 end
 
@@ -22,5 +33,6 @@ function update()
         text_window_object:update()
     end
     text_window_object:draw()
+    drawer:draw()
     menu_object:draw()
 end
