@@ -19,14 +19,14 @@ Tile.__index = Tile
 Tile.EMPTY = 1
 Tile.FLOOR = 0
 Tile.WALL = 1
-Tile.A_STAIRCASE = 0
+Tile.A_STAIRCASE = 2
 Tile.D_STAIRCASE = 0
 Tile.SOIL = 1
 Tile.VEIN = 1
 Tile.C_DOOR = 0
 Tile.O_DOOR = 0
 
-Tile.PLAYER = 0
+Tile.PLAYER = 3
 Tile.BOSS = 0
 
 function Tile:new(t)

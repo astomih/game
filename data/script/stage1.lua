@@ -1,6 +1,7 @@
 collision_space = {}
 brown = {}
 fps_mode = true
+
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
@@ -16,17 +17,38 @@ local map_draw3ds = {}
 local box = {}
 local sprite = {}
 local menu = {}
+local stair = {}
 -- assets
 local tree = model()
 local music = music()
 local iseki_wall = texture()
-iseki_wall:load("iseki_wall.png")
+local bright = 0.6
+local dark = 0.5
+if now_stage == 1 then
+    iseki_wall:fill_color(color(dark, bright, dark, 1))
+else
+    if now_stage == 2 then
+        iseki_wall:fill_color(color(bright, dark, dark, 1))
+    else
+        if now_stage == 3 then
+            iseki_wall:fill_color(color(dark, dark, bright, 1))
+        end
+    end
+
+end
 tree:load("tree.sim", "tree")
+local stair_model = model()
+stair_model:load("stair.sim", "stair")
+
+local menu = require("menu")
+local menu_object = menu()
 
 function setup()
+    menu_object:setup()
     print("Arrow key: move")
     print("Z: shot")
     print("SEARCH AND DESTROY!")
+    print(now_stage)
     music:load("Stage1.ogg")
     music:play()
     tex = texture()
@@ -39,6 +61,8 @@ function setup()
     box.vertex_name = "BOX"
     sprite = draw3d_instanced(iseki_wall)
     sprite.is_draw_depth = false
+    stair = draw3d(tex)
+    stair.vertex_name = "stair"
     for i = 1, collision_space_division + 2 do
         collision_space[i] = {}
         for j = 1, collision_space_division + 2 do
@@ -78,6 +102,14 @@ function setup()
                     collision_space[collision_space_y + 2][collision_space_x + 2],
                     map_draw3ds[y][x])
 
+            end
+            if map[y][x] == 2 then
+                stair.position.x = x * 2
+                stair.position.y = y * 2
+            end
+            if map[y][x] == 3 then
+                player.drawer.position.x = x * 2
+                player.drawer.position.y = y * 2
             end
         end
     end
@@ -127,12 +159,19 @@ local function draw()
     for i, v in ipairs(enemies) do v:draw() end
     box:draw()
     sprite:draw()
+    stair:draw()
+    menu_object:draw()
 end
 function update()
-    light_eye(vector3(0, 1, -5))
+    light_eye(vector3(0, 2, -10))
     light_at(vector3(0, 0, 0))
     light_width(200)
     light_height(200)
+    menu_object:update()
+    if not menu_object.hide then
+        draw()
+        return
+    end
     if keyboard:key_state(keyX) == buttonPRESSED then fps_mode = not fps_mode end
     for i, v in ipairs(player.bullets) do
         for j, w in ipairs(enemies) do
@@ -171,6 +210,14 @@ function update()
     for i, v in ipairs(enemies) do
         v:update(player, map, map_draw3ds, map_size_x, map_size_y)
         v:player_collision(player)
+    end
+    if map[math.floor(player.drawer.position.y / 2 + 0.5)][math.floor(
+        player.drawer.position.x / 2 + 0.5)] == 2 then
+
+        if keyboard:key_state(keySPACE) == buttonPRESSED then
+            now_stage = now_stage + 1
+            change_scene("stage1")
+        end
     end
     camera_update()
     draw()

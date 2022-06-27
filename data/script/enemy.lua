@@ -39,17 +39,36 @@ local enemy = function()
         end,
         setup = function(self, _map, map_size_x, map_size_y)
             gm_handler_inited = false
-            self.model = model()
-            self.model:load("spider.sim", "enemy")
             self.drawer = draw3d(tex)
-            self.drawer.vertex_name = "enemy"
+            self.model = model()
+            if now_stage == 1 then
+                self.model:load("spider.sim", "spider")
+                self.drawer.vertex_name = "spider"
+                self.drawer.scale = vector3(0.3, 0.3, 0.3)
+            end
+            if now_stage == 2 then
+                if math.random(0, 1) == 0 then
+                    self.model:load("bat.sim", "bat")
+                    self.drawer.vertex_name = "bat"
+                    self.drawer.scale = vector3(0.4, 0.4, 0.4)
+                else
+                    self.model:load("lizard.sim", "lizard")
+                    self.drawer.vertex_name = "lizard"
+                    self.drawer.scale = vector3(1, 1, 1)
+
+                end
+            end
+            if now_stage == 3 then
+                self.model:load("frog.sim", "frog")
+                self.drawer.vertex_name = "frog"
+                self.drawer.scale = vector3(1, 1, 1)
+            end
             self.aabb = aabb()
             self.map = _map
             r1 = 0
             r2 = 0
             while decide_pos(_map, map_size_x, map_size_y) == true do end
             self.drawer.position = vector3(r1 * 2, r2 * 2, 1)
-            self.drawer.scale = vector3(0.3, 0.3, 0.3)
             self.is_collision_first = true
             self.collision_time = 1.0
             self.collision_timer = 0.0
