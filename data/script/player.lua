@@ -158,9 +158,9 @@ local player = {
         mouse:set_position(vector2(1280 / 2, 720 / 2))
         mpos.x = 640 - mpos.x
         mpos.y = 360 - mpos.y
-        local sikiiti = 8
-        self.drawer.rotation.z =
-            self.drawer.rotation.z + (mpos.x) * delta_time * sikiiti
+        local sikiiti = 8.0
+        self.drawer.rotation.z = self.drawer.rotation.z +
+                                     ((mpos.x * delta_time * sikiiti))
         -- if fps_mode then
         scale = self.drawer.scale.x * 2.0
         before_pos = vector3(self.drawer.position.x, self.drawer.position.y,

@@ -5,12 +5,12 @@ fps_mode = true
 local player = require "player"
 local enemy = require "enemy"
 local enemies = {}
-local enemy_max_num = 5
+local enemy_max_num = 10
 local dungeon_generator = require "dungeon_generator/dungeon_generator"
 local world = require "world"
 local map = {}
-local map_size_x = 25
-local map_size_y = 25
+local map_size_x = 50
+local map_size_y = 50
 collision_space_division = map_size_x / 10 * 2 + 1
 -- draw object
 local map_draw3ds = {}
@@ -49,7 +49,7 @@ function setup()
     print("Z: shot")
     print("SEARCH AND DESTROY!")
     print(now_stage)
-    music:load("Stage1.ogg")
+    music:load("BGM01.wav")
     music:play()
     tex = texture()
     brown = texture()
@@ -106,6 +106,7 @@ function setup()
             if map[y][x] == 2 then
                 stair.position.x = x * 2
                 stair.position.y = y * 2
+                stair.position.z = 1000
             end
             if map[y][x] == 3 then
                 player.drawer.position.x = x * 2
@@ -163,6 +164,7 @@ local function draw()
     menu_object:draw()
 end
 function update()
+    if now_stage == 4 then change_scene("boss_stage") end
     light_eye(vector3(0, 2, -10))
     light_at(vector3(0, 0, 0))
     light_width(200)
@@ -196,7 +198,8 @@ function update()
                 end
                 if w.hp < 0 then table.remove(enemies, j) end
                 if table.maxn(enemies) <= 0 then
-                    change_scene("win_scene")
+                    stair.position.z = 0
+
                 end
             end
         end
@@ -214,7 +217,8 @@ function update()
     if map[math.floor(player.drawer.position.y / 2 + 0.5)][math.floor(
         player.drawer.position.x / 2 + 0.5)] == 2 then
 
-        if keyboard:key_state(keySPACE) == buttonPRESSED then
+        if keyboard:key_state(keySPACE) == buttonPRESSED and stair.position.z ==
+            0 then
             now_stage = now_stage + 1
             change_scene("stage1")
         end

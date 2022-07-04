@@ -6,7 +6,7 @@ local hello_drawer = {}
 local press_drawer = {}
 local menu = require("menu")
 local menu_object = menu()
-now_stage = 1
+now_stage = 4
 
 function setup()
     menu_object:setup()

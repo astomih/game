@@ -45,16 +45,19 @@ local enemy = function()
                 self.model:load("spider.sim", "spider")
                 self.drawer.vertex_name = "spider"
                 self.drawer.scale = vector3(0.3, 0.3, 0.3)
+                self.type = bullet_type.grass
             end
             if now_stage == 2 then
                 if math.random(0, 1) == 0 then
                     self.model:load("bat.sim", "bat")
                     self.drawer.vertex_name = "bat"
                     self.drawer.scale = vector3(0.4, 0.4, 0.4)
+                    self.type = bullet_type.fire
                 else
                     self.model:load("lizard.sim", "lizard")
                     self.drawer.vertex_name = "lizard"
                     self.drawer.scale = vector3(1, 1, 1)
+                    self.type = bullet_type.fire
 
                 end
             end
@@ -62,6 +65,7 @@ local enemy = function()
                 self.model:load("frog.sim", "frog")
                 self.drawer.vertex_name = "frog"
                 self.drawer.scale = vector3(1, 1, 1)
+                self.type = bullet_type.water
             end
             self.aabb = aabb()
             self.map = _map
